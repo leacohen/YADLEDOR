@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Or Ledor - admin panel</title>
+	<link rel="stylesheet" type="text/css" href="/node_modules/angular-material/angular-material.css">
+	<link href="/node_modules/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body ng-app="orledor" flex layout="column">
+	<div ui-view="" flex layout="column"></div>
+
+	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+	<script type="text/javascript" src="/node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="/node_modules/angular-aria/angular-aria.js"></script>
+	<script type="text/javascript" src="/node_modules/angular-animate/angular-animate.js"></script>
+	<script type="text/javascript" src="/node_modules/angular-material/angular-material.js"></script>
+	<script type="text/javascript" src="/app.js"></script>
+	<script type="text/javascript" src="/providers/firebase.service.js"></script>
+	<script type="text/javascript" src="/providers/logged-user.service.js"></script>
+	<script type="text/javascript" src="/shell/shell.route.js"></script>
+	<script type="text/javascript" src="/shell/shell.controller.js"></script>
+	<script type="text/javascript" src="/login/login.route.js"></script>
+	<script type="text/javascript" src="/login/login.controller.js"></script>
+	<script type="text/javascript" src="/links/links.route.js"></script>
+	<script type="text/javascript" src="/links/links.controller.js"></script>
+	<script type="text/javascript" src="/links/add-link/add-link.controller.js"></script>	
+</body>
+</html>

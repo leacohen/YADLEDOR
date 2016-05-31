@@ -1,0 +1,39 @@
+<md-dialog aria-label="יצירת קישור חדש" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>יצירת קישור חדש</h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content layout-padding layout="column">
+            <md-input-container>
+                <label>שם הקישור</label>
+                <input ng-model="link._name">
+            </md-input-container>
+            <md-input-container>
+                <label>כתובת</label>
+                <input ng-model="link._link">
+            </md-input-container>
+            <md-input-container ng-if="false">
+                <label>ארץ פירסום</label>
+                <input ng-model="">
+            </md-input-container>
+            <md-input-container ng-if="false">
+                <label>שנים</label>
+                <input ng-model="">
+            </md-input-container>
+            <md-input-container>
+                <label>סוג</label>
+                <md-select ng-model="link._type">
+                    <md-option value="Song">שיר</md-option>
+                    <md-option value="Movie">סרט</md-option>
+                </md-select>
+            </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="saveLink()" md-autofocus>
+                שמור
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
