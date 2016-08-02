@@ -3,7 +3,7 @@ package com.lea.samsung.orledorapp.Logic;
 import com.lea.samsung.orledorapp.Common.UserContext;
 import com.lea.samsung.orledorapp.DAL.UserDal;
 import com.lea.samsung.orledorapp.Inerfaces.ILoginAction;
-import com.lea.samsung.orledorapp.Login.LoginActivity;
+import com.lea.samsung.orledorapp.Activities.Login.LoginActivity;
 import com.lea.samsung.orledorapp.Models.User;
 
 /**

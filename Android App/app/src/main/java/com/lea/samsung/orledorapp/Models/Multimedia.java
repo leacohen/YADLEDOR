@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Multimedia extends BaseMultimedia {
     private Date _publishDate;
-    private List<String> _publishedCountry;
+    private String _language;
 
     public Date get_publishDate() {
         return _publishDate;
@@ -20,12 +20,12 @@ public class Multimedia extends BaseMultimedia {
         this._publishDate = _publishDate;
     }
 
-    public List<String> get_publishedCountry() {
-        return _publishedCountry;
+    public String get_language() {
+        return _language;
     }
 
-    public void set_publishedCountry(List<String> _publishedCountry) {
-        this._publishedCountry = _publishedCountry;
+    public void set_language(String _language) {
+        this._language = _language;
     }
 }
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.lea.samsung.orledorapp.MainMenuActivity"
+    tools:context=".Activities.MainMenuActivity"
     android:backgroundTint="#f6f975"
     android:background="#f6f975">
 

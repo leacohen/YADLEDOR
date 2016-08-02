@@ -13,7 +13,7 @@ public class User {
     private String _firstName;
     private String _lastName;
     private Date _birthDate;
-    private String _country;
+    private List<String> _language;
     private List<BaseMultimedia> _userMultimedia;
 
     public User() {
@@ -60,15 +60,19 @@ public class User {
         this._birthDate = _birthDate;
     }
 
-    public String get_country() {
-        return _country;
+    public List<String> get_language() {
+        return _language;
     }
 
-    public void set_country(String _country) {
-        this._country = _country;
+    public void set_language(List<String> _language) {
+        this._language = _language;
     }
 
     public List<BaseMultimedia> get_userMultimedia() {
         return _userMultimedia;
+    }
+
+    public void set_userMultimedia(List<BaseMultimedia> _userMultimedia) {
+        this._userMultimedia = _userMultimedia;
     }
 }

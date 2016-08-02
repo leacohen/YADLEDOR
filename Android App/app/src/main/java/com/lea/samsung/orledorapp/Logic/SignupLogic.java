@@ -5,12 +5,18 @@ import com.lea.samsung.orledorapp.DAL.UserDal;
 import com.lea.samsung.orledorapp.Models.User;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by USER on 5/7/2016.
  */
 public class SignupLogic {
-    public boolean SignUp(String userName,String password, String firstName, String lastName, Date birthDate, String country)
+    public boolean SignUp(String userName,
+                          String password,
+                          String firstName,
+                          String lastName,
+                          Date birthDate,
+                          List<String> languages)
     {
         User newUser = new User();
         newUser.set_userName(userName);
@@ -18,7 +24,7 @@ public class SignupLogic {
         newUser.set_firstName(firstName);
         newUser.set_lastName(lastName);
         newUser.set_birthDate(birthDate);
-        newUser.set_country(country);
+        newUser.set_language(languages);
 
         Boolean isAddSucceed = new UserDal().SaveUser(newUser);
 

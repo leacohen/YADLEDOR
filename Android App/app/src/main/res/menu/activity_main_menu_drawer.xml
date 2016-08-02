@@ -10,23 +10,24 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="סרטים מומלצים עבורך" />
+    </group>
+
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_divider"
+            android:title="****המלצות מערכת נוספות****" />
+
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="המלצות מערכת נוספות" />
-    </group>
+            android:title="משחקי זיכרון" />
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="שתף" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="שלח" />
-        </menu>
-    </item>
+        <item
+            android:id="@+id/nav_classic_music"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="מוזיקה קלאסית" />
+    </group>
 
 </menu>

@@ -25,5 +25,6 @@
     <string-array name="multimedia_arrays">
         <item>מוזיקה</item>
         <item>סרט</item>
+        <item>אחר</item>
     </string-array>
 </resources>

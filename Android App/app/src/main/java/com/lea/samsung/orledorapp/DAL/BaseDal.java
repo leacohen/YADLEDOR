@@ -10,6 +10,6 @@ public class BaseDal {
 
     public BaseDal() {
         // TODO: get the url from config file
-        DB = new Firebase("https://fiery-fire-8931.firebaseio.com/");
+        DB = new Firebase("rhttps://fiery-fire-8931.firebaseio.com/");
     }
 }

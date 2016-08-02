@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Login.LoginActivity">
+    tools:context=".Activities.Login.LoginActivity">
 
     <!-- Login progress -->
     <TextView
@@ -18,22 +18,6 @@
         android:id="@+id/textView4"
         android:textColor="@android:color/black"
         android:textAlignment="center" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/sign_up_fullName"
-        android:hint="שם מלא" />
-
-    <ProgressBar
-        android:id="@+id/sign_up_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
 
     <ScrollView
         android:id="@+id/sign_up_form"
@@ -45,6 +29,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/sign_up_fullName"
+                    android:hint="שם מלא" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <ProgressBar
+                android:id="@+id/sign_up_progress"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -112,38 +118,14 @@
 
             </android.support.design.widget.TextInputLayout>
 
-
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/sign_up_language"
-                    android:layout_width="match_parent"
+                <com.lea.samsung.orledorapp.Activities.MultiSpinner
                     android:layout_height="wrap_content"
-                    android:hint="שפת אם"
-                    android:imeActionId="@+id/sign_up"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/sign_up_second_language"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="שפה משנית"
-                    android:imeActionId="@+id/sign_up"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true" />
+                    android:id="@+id/languages" />
 
             </android.support.design.widget.TextInputLayout>
 
