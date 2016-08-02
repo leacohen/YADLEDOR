@@ -1,14 +1,16 @@
-<md-card layout="column" layout-align="space-around" ng-repeat="link in links">
+<md-card layout="column" layout-align="space-around" ng-repeat="link in links" class="links">
     <md-card-content>
         <h2>{{ link._name }}</h2> {{ link._link }}
     </md-card-content>
     <md-card-footer>
         <div flex layout="row" layout-align="space-between">
-            <span>{{ link._type }}</span>
-            <md-button class="md-primary" ng-click="delete(link._name)">מחק</md-button>
+            <span><span class="info-header">Type: </span><span>{{ link._type }}</span></span>
+            <span><span class="info-header">Publish Date: </span><span>{{ link._publishDate }}</span></span>
+            <span><span class="info-header">Language: </span><span>{{ link._language }}</span></span>
+            <md-button class="md-primary md-raised" ng-click="delete(link._name)">מחק</md-button>
         </div>
     </md-card-footer>
 </md-card>
 <md-button class="new-link md-fab md-primary md-mini" ng-click="createLink($event)">
-    <i class="mdi mdi-telegram"></i>
+    <i class="large mdi mdi-note-plus-outline"></i>
 </md-button>

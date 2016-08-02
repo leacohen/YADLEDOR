@@ -1,4 +1,4 @@
-<md-dialog aria-label="יצירת קישור חדש" ng-cloak>
+<md-dialog aria-label="יצירת קישור חדש" ng-cloak class="md-padding">
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -18,15 +18,13 @@
                 <label>ארץ פירסום</label>
                 <input ng-model="">
             </md-input-container>
-            <md-input-container ng-if="false">
-                <label>שנים</label>
-                <input ng-model="">
-            </md-input-container>
+                <md-datepicker ng-model="publishDate" md-placeholder="תאריך הוצאה"></md-datepicker>
             <md-input-container>
                 <label>סוג</label>
                 <md-select ng-model="link._type">
                     <md-option value="Song">שיר</md-option>
                     <md-option value="Movie">סרט</md-option>
+                    <md-option value="Other">אחר</md-option>
                 </md-select>
             </md-input-container>
         </md-dialog-content>
