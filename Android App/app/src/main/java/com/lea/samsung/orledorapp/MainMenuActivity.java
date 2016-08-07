@@ -48,7 +48,6 @@ public class MainMenuActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         // If the user is not logged in, switch to login page
         super.onCreate(savedInstanceState);
-        Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_main_menu);
 
         if(UserContext.getLoggedUser() == null) {

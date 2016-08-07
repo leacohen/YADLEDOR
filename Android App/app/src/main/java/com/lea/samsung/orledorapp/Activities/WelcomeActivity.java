@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.firebase.client.Firebase;
 import com.lea.samsung.orledorapp.Activities.Login.LoginActivity;
 import com.lea.samsung.orledorapp.Activities.Login.SignUpActivity;
 import com.lea.samsung.orledorapp.R;
@@ -18,6 +19,8 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        Firebase.setAndroidContext(this);
 
         SetLoginOnClickAction();
         SetSignupOnClickAction();
