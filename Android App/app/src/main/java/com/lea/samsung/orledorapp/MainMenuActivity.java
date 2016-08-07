@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -27,11 +27,11 @@ import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 import com.lea.samsung.orledorapp.Common.UserContext;
-import com.lea.samsung.orledorapp.Inerfaces.IRecommendedActivity;
 import com.lea.samsung.orledorapp.Inerfaces.IRecommended;
+import com.lea.samsung.orledorapp.Inerfaces.IRecommendedActivity;
 import com.lea.samsung.orledorapp.Logic.FavoriteLogic;
 import com.lea.samsung.orledorapp.Logic.MultimediaLogic;
-import com.lea.samsung.orledorapp.Login.LoginActivity;
+import com.lea.samsung.orledorapp.Activities.Login.LoginActivity;
 import com.lea.samsung.orledorapp.Models.BaseMultimedia;
 import com.lea.samsung.orledorapp.Models.MultimediaType;
 
@@ -215,10 +215,6 @@ public class MainMenuActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
             startActivity(new Intent(this,MovieActivity.class));
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 

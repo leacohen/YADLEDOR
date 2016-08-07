@@ -21,6 +21,15 @@
         <activity
             android:name=".Activities.MainMenuActivity"
             android:label="@string/title_activity_main_menu"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Activities.MemoActivity" />
+        <activity android:name=".Activities.SongsActivity" />
+        <activity android:name=".Activities.MovieActivity" />
+        <activity android:name=".Activities.MemoryGameActivity" />
+        <activity android:name=".Activities.ClassicMusicActivity" />
+        <activity
+            android:name=".Activities.WelcomeActivity"
+            android:label="@string/title_activity_welcome"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,11 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MemoActivity" />
-        <activity android:name=".Activities.SongsActivity" />
-        <activity android:name=".Activities.MovieActivity" />
-        <activity android:name=".Activities.MemoryGameActivity" />
-        <activity android:name=".Activities.ClassicMusicActivity"></activity>
     </application>
 
 </manifest>
