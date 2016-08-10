@@ -38,4 +38,10 @@
     <string name="txtLoginPassword">סיסמא</string>
     <string name="btnLogin">התחבר</string>
     <string name="btnRegisterLink">אם אינך משתמש רשום, לחץ כאן</string>
+    <string name="lblRegisterLabel">הרשמה</string>
+    <string name="txtUserName">שם משתמש</string>
+    <string name="txtPassword">סיסמא</string>
+    <string name="txtRepassword">ווידוא סיסמא</string>
+    <string name="btnSignup">הירשם</string>
+    <string name="txtFullName">שם מלא</string>
 </resources>
