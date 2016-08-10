@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OrLedorApp</string>
+    <string name="app_name">אור לדור</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -32,4 +32,10 @@
     <string name="lblWelcomeDescription">שדגחלשחחךלשדכישדיכחלשדךכמשדחלכמשדכלחדשצכמדלשחכמשדלכחצשדכמ לחשדעמשדחלכדשמצכלחדשמכחלשדכמשדכ</string>
     <string name="btnWelcomeRegister">הרשמה למשתמש חדש לחץ כאן</string>
     <string name="btnWelcomeLogin">אם הינך משתמש רשום, לחץ כאן</string>
+    <string name="התחברות" />
+    <string name="lblLoginHeader">התחברות</string>
+    <string name="txtLoginUserName">שם משתמש</string>
+    <string name="txtLoginPassword">סיסמא</string>
+    <string name="btnLogin">התחבר</string>
+    <string name="btnRegisterLink">אם אינך משתמש רשום, לחץ כאן</string>
 </resources>

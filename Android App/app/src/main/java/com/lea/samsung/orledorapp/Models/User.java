@@ -18,6 +18,7 @@ public class User {
     private boolean _isAdmin;
 
     public User() {
+
         _userMultimedia = new ArrayList();
     }
 
@@ -75,5 +76,13 @@ public class User {
 
     public void set_userMultimedia(List<BaseMultimedia> _userMultimedia) {
         this._userMultimedia = _userMultimedia;
+    }
+
+    public boolean is_isAdmin() {
+        return _isAdmin;
+    }
+
+    public void set_isAdmin(boolean _isAdmin) {
+        this._isAdmin = _isAdmin;
     }
 }
