@@ -15,6 +15,7 @@ public class User {
     private Date _birthDate;
     private List<String> _language;
     private List<BaseMultimedia> _userMultimedia;
+    private boolean _isAdmin;
 
     public User() {
         _userMultimedia = new ArrayList();

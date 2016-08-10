@@ -6,7 +6,7 @@ angular.module('orledor').controller('linksController', function($scope, $mdDial
 	$scope.createLink = function(ev) {
 		$mdDialog.show({
 			controller: 'addLinkController',
-			templateUrl: '/links/add-link/add-link.html',
+			templateUrl: 'app/admin-panel/links/add-link/add-link.html',
 			targetEvent: ev,
 			clickOutsideToClose: true,
 		})
