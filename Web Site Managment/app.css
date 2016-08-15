@@ -1,9 +1,1 @@
-.new-link {
-	position: fixed;
-	bottom: 10px;
-	right: 10px;
-}
-
-.info-header {
-	font-weight: bold;
-}
+.client-shell-menu a{color:white;margin:0 10px 0 10px;text-decoration:blink;transition:transform 1s}.client-shell-menu a:hover{transform:scale(1.1)}.new-link{position:fixed;bottom:10px;right:10px}.info-header{font-weight:bold}/*# sourceMappingURL=app.css.map */

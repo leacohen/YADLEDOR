@@ -3,6 +3,6 @@ angular.module('orledor').config(function($stateProvider) {
 		url: '/home',
 		templateUrl: 'app/client/home/home.html',
 		controller: 'homeController',
-		parent: 'shell'
+		parent: 'clientShell'
 	})
 });
