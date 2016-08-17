@@ -11,6 +11,7 @@ import java.util.List;
 public class Multimedia extends BaseMultimedia {
     private Date _publishDate;
     private String _language;
+	private int likes;
 
     public Date get_publishDate() {
         return _publishDate;
@@ -27,5 +28,13 @@ public class Multimedia extends BaseMultimedia {
     public void set_language(String _language) {
         this._language = _language;
     }
+	
+	public int getLikes() {
+		return this.likes;
+	}
+	
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
 }
 

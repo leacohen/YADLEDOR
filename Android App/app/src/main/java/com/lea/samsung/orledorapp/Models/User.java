@@ -16,10 +16,11 @@ public class User {
     private List<String> _language;
     private List<BaseMultimedia> _userMultimedia;
     private boolean _isAdmin;
+	private HashMap likes;
 
     public User() {
-
         _userMultimedia = new ArrayList();
+		likes = new HashMap();
     }
 
     public String get_userName() {
@@ -84,5 +85,13 @@ public class User {
 
     public void set_isAdmin(boolean _isAdmin) {
         this._isAdmin = _isAdmin;
+    }
+	
+	public HashMap getLikes() {
+        return _isAdmin;
+    }
+
+    public void setLikes(HashMap likes) {
+        this.likes = likes;
     }
 }

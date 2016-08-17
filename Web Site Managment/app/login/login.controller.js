@@ -4,7 +4,7 @@ angular.module('orledor')
 		$scope.user = {};
 
 		$scope.login = function(ev) {
-			firebase.child("users").child($scope.user.userName).once("value")
+			return firebase.child("users").child($scope.user.userName).once("value")
 				.then(function(user) {
 					var userValue = user.val();
 
@@ -20,6 +20,7 @@ angular.module('orledor')
 						);
 					}
 
+					loggedUser.setUser(userValue);
 					routeUser(userValue);
 				})
 				.catch(function(err) {
@@ -27,9 +28,7 @@ angular.module('orledor')
 				});
 		}
 
-		function routeUser(user) {
-			loggedUser.setUser(user);
-			
+		function routeUser(user) {						
 			if (user._isAdmin) {
 				$state.go('manage-links');
 			}
