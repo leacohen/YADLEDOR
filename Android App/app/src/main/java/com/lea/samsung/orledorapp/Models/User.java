@@ -2,6 +2,7 @@ package com.lea.samsung.orledorapp.Models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -88,7 +89,7 @@ public class User {
     }
 	
 	public HashMap getLikes() {
-        return _isAdmin;
+        return likes;
     }
 
     public void setLikes(HashMap likes) {
