@@ -44,4 +44,9 @@
     <string name="txtRepassword">ווידוא סיסמא</string>
     <string name="btnSignup">הירשם</string>
     <string name="txtFullName">שם מלא</string>
+    <string name="lblMainFavoriteHeader">שלום %s בלה בלה</string>
+    <string name="lblMainFavoriteDescription">בלהלבלהלשדגשדחלכגישדוכדשיכדשלחכמחלשדמכחלדשמכחלדשמכחלדשמכחלשדכמשדלחמדשכ</string>
+    <string name="btnFavoriteSongs">שירים מועדפים</string>
+    <string name="btnFavoriteMovies">סרטים</string>
+    <string name="btnFavoriteOthers">אחר</string>
 </resources>

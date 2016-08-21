@@ -26,6 +26,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+import com.lea.samsung.orledorapp.Activities.MemoActivity;
+import com.lea.samsung.orledorapp.Activities.MovieActivity;
+import com.lea.samsung.orledorapp.Activities.SongsActivity;
 import com.lea.samsung.orledorapp.Common.UserContext;
 import com.lea.samsung.orledorapp.Inerfaces.IRecommended;
 import com.lea.samsung.orledorapp.Inerfaces.IRecommendedActivity;

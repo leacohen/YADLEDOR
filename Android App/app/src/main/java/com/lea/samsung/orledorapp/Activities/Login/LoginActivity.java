@@ -29,6 +29,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.lea.samsung.orledorapp.Activities.MainFavoriteActivity;
 import com.lea.samsung.orledorapp.Logic.LoginLogic;
 import com.lea.samsung.orledorapp.Activities.MainMenuActivity;
 import com.lea.samsung.orledorapp.R;
@@ -93,28 +94,6 @@ public class LoginActivity extends AppCompatActivity {
         //mProgressView = findViewById(R.id.login_progress);
     }
 
-    private boolean mayRequestContacts() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return true;
-        }
-        if (checkSelfPermission(READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        }
-        if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
-            Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
-                    .setAction(android.R.string.ok, new View.OnClickListener() {
-                        @Override
-                        @TargetApi(Build.VERSION_CODES.M)
-                        public void onClick(View v) {
-                            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
-                        }
-                    });
-        } else {
-            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
-        }
-        return false;
-    }
-
     /**
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the
@@ -158,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginSuccsed() {
-        Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MainFavoriteActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         getApplicationContext().startActivity(intent);
     }

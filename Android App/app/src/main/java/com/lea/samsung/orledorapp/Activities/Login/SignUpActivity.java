@@ -11,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.lea.samsung.orledorapp.Activities.MainFavoriteActivity;
 import com.lea.samsung.orledorapp.Activities.MultiSpinner;
 import com.lea.samsung.orledorapp.Logic.SignupLogic;
 import com.lea.samsung.orledorapp.Activities.MainMenuActivity;
@@ -85,7 +86,7 @@ public class SignUpActivity extends AppCompatActivity implements MultiSpinner.Mu
                         selectedLanguages);
 
                 if (isSignUpSucceed) {
-                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainFavoriteActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     getApplicationContext().startActivity(intent);
                 } else {
