@@ -73,6 +73,7 @@
             android:inputType="text"
             android:maxLines="1"
             android:singleLine="true"
+            android:focusable="false"
             />
 
     </android.support.design.widget.TextInputLayout>
