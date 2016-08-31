@@ -9,7 +9,8 @@
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/lvSign"
             android:layout_width="70dp"
-            android:layout_height="70dp" />
+            android:layout_height="70dp"
+            android:paddingLeft="10dp" />
 
         <LinearLayout
             android:id="@+id/infoLayout"

@@ -2,10 +2,12 @@ package com.lea.samsung.orledorapp.Activities;
 
 import java.lang.Object;
 import java.lang.Override;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +21,14 @@ import com.lea.samsung.orledorapp.Models.MultimediaType;
 import com.lea.samsung.orledorapp.R;
 
 public class MultimediaListAdapter extends BaseAdapter {
+    private static List<Integer> signColors = new ArrayList<Integer>() {{
+        add(Color.RED);
+        add(Color.BLUE);
+        add(Color.YELLOW);
+    }};
     private Activity activity;
     private LayoutInflater inflater;
     private List<IRecommended> multimedias;
-    //private ImageLoader imageLoader;
 
     public MultimediaListAdapter(Activity activity, List<IRecommended> multimedias) {
         this.activity = activity;
@@ -68,9 +74,16 @@ public class MultimediaListAdapter extends BaseAdapter {
             Multimedia multimedia = (Multimedia) m;
 
             if(multimedia.get_type() == MultimediaType.Song) {
-                ivSign.setMaxHeight(convertView.findViewById(R.id.infoLayout).getHeight());
                 ivSign.setImageResource(R.drawable.music_sign);
             }
+            else if(multimedia.get_type() == MultimediaType.Movie) {
+                ivSign.setImageResource(R.drawable.movie_sign);
+            }
+            else {
+                ivSign.setImageResource(R.drawable.other_sign);
+            }
+
+            ivSign.setColorFilter(signColors.get(position % signColors.size()));
 
             lblLanguages.setVisibility(View.VISIBLE);
             lblLanguages.setText(activity.getString(R.string.lvLanguage) + ": " + multimedia.get_language());
