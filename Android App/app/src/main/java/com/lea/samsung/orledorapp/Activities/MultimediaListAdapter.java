@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lea.samsung.orledorapp.Inerfaces.IRecommended;
 import com.lea.samsung.orledorapp.Models.Multimedia;
@@ -64,6 +65,9 @@ public class MultimediaListAdapter extends BaseAdapter {
         TextView lblDate = (TextView)convertView.findViewById(R.id.multimedia_date);
         ImageView ivSign = (ImageView)convertView.findViewById(R.id.lvSign);
 
+        setLikeClicks((ImageView)convertView.findViewById(R.id.lvLike),
+                (ImageView)convertView.findViewById(R.id.lvDislike));
+
         // getting movie data for the row
         final IRecommended m = multimedias.get(position);
 
@@ -94,5 +98,21 @@ public class MultimediaListAdapter extends BaseAdapter {
         }
 
         return convertView;
+    }
+
+    private void setLikeClicks(final ImageView like, final ImageView dislike) {
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(like.getContext(),"like is not functional yet", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        dislike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(dislike.getContext(),"like is not functional yet", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
