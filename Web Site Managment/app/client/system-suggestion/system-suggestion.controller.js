@@ -4,7 +4,7 @@ angular.module('orledor')
 		var promise = $q.resolve();
 		if (!loggedUser.getUser()) {
 			// TODO: Temp!!! autologin to a@aa
-			promise = firebase.child("users").child("a@aa").once("value")
+			promise = firebase.child("users").child("leacohen").once("value")
 				.then(function(user) {
 					var userValue = user.val();
 					loggedUser.setUser(userValue);

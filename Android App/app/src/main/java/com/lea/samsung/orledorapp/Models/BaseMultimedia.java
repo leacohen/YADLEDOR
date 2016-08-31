@@ -8,6 +8,7 @@ import com.lea.samsung.orledorapp.Inerfaces.IRecommended;
 public class BaseMultimedia  implements IRecommended {
     private String _name;
     private String _link;
+    private MultimediaType _type;
 
     public MultimediaType get_type() {
         return _type;
@@ -16,8 +17,6 @@ public class BaseMultimedia  implements IRecommended {
     public void set_type(MultimediaType _type) {
         this._type = _type;
     }
-
-    private MultimediaType _type;
 
     public String get_name() {
         return _name;
@@ -34,7 +33,6 @@ public class BaseMultimedia  implements IRecommended {
     public void set_link(String _link) {
         this._link = _link;
     }
-
 
     @Override
     public String toString() {

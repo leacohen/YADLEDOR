@@ -49,4 +49,6 @@
     <string name="btnFavoriteSongs">שירים מועדפים</string>
     <string name="btnFavoriteMovies">סרטים</string>
     <string name="btnFavoriteOthers">אחר</string>
+    <string name="lvLanguage">שפה</string>
+    <string name="lvDate">תאריך</string>
 </resources>
