@@ -1,6 +1,8 @@
 angular.module('orledor')
 	.controller('systemSuggestionController', function($scope, firebase, loggedUser, $q) {
 
+		initMediaTypes();
+
 		var promise = $q.resolve();
 		if (!loggedUser.getUser()) {
 			// TODO: Temp!!! autologin to a@aa
@@ -115,5 +117,21 @@ angular.module('orledor')
 			}
 
 			return 0;
+		}
+
+		function initMediaTypes() {
+			$scope.mediaTypes = [ 
+				{
+					name: '',
+					displayName: 'הצג הכול'
+				},
+				{
+					name: 'Song',
+					displayName: 'מוזיקה'
+				},
+				{
+					name: 'Movie',
+					displayName: 'סרטים'
+				}];
 		}
 	});
