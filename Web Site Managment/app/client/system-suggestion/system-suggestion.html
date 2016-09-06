@@ -2,7 +2,7 @@
 	<md-progress-circular ng-if="isWaitingForMedia" class="md-hue-2" md-diameter="100px" md-mode='indeterminate'>
 	</md-progress-circular>
 </div>
-<md-card flex layout="column">	
+<md-card flex layout="column" ng-hide="isWaitingForMedia">	
 	<md-select ng-model="filterType._type" placeholder='סינון לפי קטגוריה'>
 	  <md-select-label layout-padding>אפשרויות לסינון</md-select-label>
 	  <md-option ng-value="mediaType.name" ng-repeat="mediaType in mediaTypes">
@@ -11,8 +11,8 @@
 	  	</md-option>
 	</md-select>
 </md-card>
-<md-list class="system-suggestion">
-	<md-list-item class="md-3-line" ng-repeat="media in medias | filter: filterType">	  
+<md-list class="media-suggestion">
+	<md-list-item class="md-3-line" ng-repeat="media in medias | filter: filterType">
 	  <div class="md-list-item-text" layout="row">
 	  	<div class="media-info" layout="row" ng-click="openLink(media._link)" flex>
 		  	<i class="mdi {{ mediaTypeToMdi(media._type) }} mdi-36px md-avatar"></i>
