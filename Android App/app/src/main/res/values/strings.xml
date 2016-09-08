@@ -33,6 +33,7 @@
 מאחלים לכם הנאה מרובה.</string>
     <string name="btnWelcomeRegister">אם ברצונך להצטרף אלינו, לחצ/י כאן</string>
     <string name="btnWelcomeLogin">אם כבר נרשמת אצלינו, לחצ/י כאן</string>
+    <string name="btnfavoritpage">למעבר לאיזור האישי שלך לחצ/י</string>
     <string name="התחברות" />
     <string name="lblLoginHeader">התחברות</string>
     <string name="txtLoginUserName">שם משתמש</string>
@@ -45,11 +46,11 @@
     <string name="txtRepassword">ווידוא סיסמא</string>
     <string name="btnSignup">הירשם</string>
     <string name="txtFullName">שם מלא</string>
-    <string name="lblMainFavoriteHeader">שלום %s בלה בלה</string>
-    <string name="lblMainFavoriteDescription">בלהלבלהלשדגשדחלכגישדוכדשיכדשלחכמחלשדמכחלדשמכחלדשמכחלדשמכחלשדכמשדלחמדשכ</string>
-    <string name="btnFavoriteSongs">שירים מועדפים</string>
-    <string name="btnFavoriteMovies">סרטים</string>
-    <string name="btnFavoriteOthers">אחר</string>
+    <string name="lblMainFavoriteHeader">ברוכים הבאים %s לעמוד המלצות המערכת המותאמת עבורך! </string>
+    <string name="lblMainFavoriteDescription">במידה ואהבתם תכנים שהצענו לכם וסימנתם זאת, תראו זאת בדף המועדפים הפרטי שלכם.</string>
+    <string name="btnFavoriteSongs">להאזנה לשירים שנבחרו עבורך לחצ/י</string>
+    <string name="btnFavoriteMovies">לצפיה בסרטים שנבחרו עבורך לחצ/י</string>
+    <string name="btnFavoriteOthers">לצפיה בתכנים נוספים שאולי יעניינו אותך לחצ/י</string>
     <string name="lvLanguage">שפה</string>
     <string name="lvDate">תאריך</string>
 </resources>
