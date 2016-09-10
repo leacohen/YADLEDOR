@@ -28,11 +28,12 @@ angular.module('orledor')
 				});
 		}
 
-		function routeUser(user) {						
+		function routeUser(user) {
+			var state = 'home';
 			if (user._isAdmin) {
-				$state.go('manage-links');
+				state = 'manage-links';
 			}
 
-			$state.go('home');
+			$state.go(state);
 		}
 	});

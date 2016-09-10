@@ -1,6 +1,7 @@
 angular.module('orledor')
     .controller('favoriteController', function($scope, firebase, loggedUser, $q, $mdDialog) {
 
+    	$scope.isWaitingForMedia = true;
         initMediaTypes();
 
         var promise = $q.resolve();
@@ -43,15 +44,15 @@ angular.module('orledor')
                     targetEvent: ev,
                     clickOutsideToClose: true,
                 })
-            	.then(function (favorite) {
-            		if(!$scope.user._userMultimedia) {
-            			$scope.user._userMultimedia = [];
-            		}
+                .then(function(favorite) {
+                    if (!$scope.user._userMultimedia) {
+                        $scope.user._userMultimedia = [];
+                    }
 
-            		$scope.user._userMultimedia.push(favorite);            		
-            	})
-            	.then(refreshMedia)
-            	.then(updateUser);                
+                    $scope.user._userMultimedia.push(favorite);
+                })
+                .then(refreshMedia)
+                .then(updateUser);
         };
 
         function refreshMedia() {
@@ -66,12 +67,12 @@ angular.module('orledor')
                         }
                     });
                 })
-                .then(function () {
-                	$scope.user._userMultimedia.forEach(function (userMedia) {
-                		console.log(userMedia);
-                		$scope.medias.push(angular.copy(userMedia));
-                		//$scope.medias.push(userMedia);
-                	});                	
+                .then(function() {
+                    if ($scope.user._userMultimedia) {
+                        $scope.user._userMultimedia.forEach(function(userMedia) {
+                            $scope.medias.push(angular.copy(userMedia));
+                        });
+                    }
                 })
                 .then(function() {
                     $scope.medias.sort(mediaSortAlgoritm);

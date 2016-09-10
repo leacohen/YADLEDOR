@@ -1,6 +1,7 @@
 angular.module('orledor')
 	.controller('systemSuggestionController', function($scope, firebase, loggedUser, $q) {
 
+		$scope.isWaitingForMedia = true;
 		initMediaTypes();
 
 		var promise = $q.resolve();
