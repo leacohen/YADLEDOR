@@ -1,10 +1,23 @@
 angular.module('orledor')
-	.controller('loginController', function($scope, $state, $mdDialog, firebase, loggedUser) {
+	.controller('loginController', function($scope, $state, $mdDialog, $q, firebase, loggedUser) {
 		// init user object
 		$scope.user = {};
 
 		$scope.login = function(ev) {
-			return firebase.child("users").child($scope.user.userName).once("value")
+			return ensureLogin()
+				.catch(function (err) {
+					$mdDialog.show(
+							$mdDialog.alert()
+							.clickOutsideToClose(true)
+							.textContent(err)
+							.ok('OK')
+							.targetEvent(ev));
+
+					return $q.reject();
+				})
+				.then(function() {
+					return firebase.child("users").child($scope.user.userName).once("value");
+				})
 				.then(function(user) {
 					var userValue = user.val();
 
@@ -35,5 +48,17 @@ angular.module('orledor')
 			}
 
 			$state.go(state);
+		}
+
+		function ensureLogin() {
+			if(!$scope.user.userName) {
+				return $q.reject('נא להזין את שם המשתמש');
+			}
+
+			if(!$scope.user.password) {
+				return $q.reject('נא להזין את הסיסמא');
+			}
+
+			return $q.resolve();
 		}
 	});
