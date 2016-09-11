@@ -6,7 +6,7 @@
 	<link href="/node_modules/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="app.css">
 </head>
-<body ng-app="orledor" flex layout="column">
+<body ng-app="orledor" flex layout="column" dir="rtl">
 	<div ui-view="" flex layout="column"></div>
 
 	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
@@ -22,6 +22,10 @@
 	<script type="text/javascript" src="/app/shell/shell.controller.js"></script>	
 	<script type="text/javascript" src="/app/login/login.route.js"></script>
 	<script type="text/javascript" src="/app/login/login.controller.js"></script>
+	<script type="text/javascript" src="/app/admin-panel/shell/shell.route.js"></script>
+	<script type="text/javascript" src="/app/admin-panel/shell/shell.controller.js"></script>
+	<script type="text/javascript" src="/app/admin-panel/accounts/accounts.controller.js"></script>
+	<script type="text/javascript" src="/app/admin-panel/accounts/accounts.route.js"></script>
 	<script type="text/javascript" src="/app/admin-panel/links/links.route.js"></script>
 	<script type="text/javascript" src="/app/admin-panel/links/links.controller.js"></script>
 	<script type="text/javascript" src="/app/admin-panel/links/add-link/add-link.controller.js"></script>	
