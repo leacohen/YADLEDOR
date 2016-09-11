@@ -1,12 +1,14 @@
-angular.module('orledor').service('loggedUser', function(){
+angular.module('orledor').service('loggedUser', function($rootScope) {
 	var loggedUser;
 
 	function setUser(user) {
 		loggedUser = user;
+		$rootScope.$broadcast('user:logedin');
 	}
 
 	function logout() {
 		loggedUser = null;
+		$rootScope.$broadcast('user:logedout');
 	}
 
 	function getUser() {

@@ -1,4 +1,9 @@
-<md-toolbar layout-align="center center">
-	<img src="../resources/logo.png" />	
+<md-toolbar class="shell-header" layout-align="center center">
+	<div ng-if="isUserLogged" class="header-hello-user" dir="rtl">
+		<span>שלום</span>
+		<span>{{ userName }}</span>
+		<span ng-click="logout()" class="logout">(התנתק)</span>
+	</div>
+	<img src="../resources/logo.png" />		
 </md-toolbar>
 <div ui-view="" flex></div>

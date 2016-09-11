@@ -1,5 +1,19 @@
-angular.module('orledor').controller('shellController', function($state, loggedUser) {
-	if (!loggedUser.getUser()) {
-		//$state.go('login');
-	}
+angular.module('orledor').controller('shellController', function($scope, $state, loggedUser) {	
+	
+	$scope.logout = loggedUser.logout;
+
+	$scope.$on('user:logedin', updateUserState);
+	$scope.$on('user:logedout', updateUserState);
+
+	function updateUserState() {
+		if(loggedUser.getUser()) {
+			$scope.isUserLogged = true;
+			$scope.userName = loggedUser.getUser()._firstName;
+		}
+
+		else {
+			$scope.isUserLogged = false;
+			$state.go('login');
+		}
+	}	
 });

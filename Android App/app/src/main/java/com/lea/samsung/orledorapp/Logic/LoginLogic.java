@@ -18,7 +18,9 @@ public class LoginLogic implements ILoginAction {
 
     public void Login(String userName, String password)
     {
-        new UserDal().GetUser(userName, password, this);
+        // TODO: TEMP!!!!
+        new UserDal().GetUser("leacohen", "12345", this);
+        //new UserDal().GetUser(userName, password, this);
     }
 
     @Override
