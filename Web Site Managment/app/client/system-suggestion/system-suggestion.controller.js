@@ -37,21 +37,50 @@ angular.module('orledor')
 			window.open(linkUrl, '_blank').focus();
 		}
 
-		$scope.like = function(mediaName) {
-			if($scope.user.likes[mediaName] === 1) {
-				return unvote(mediaName);
+		$scope.like = function(media) {
+			var mediaName = media._name;
+
+			if(!media.likes) {
+				media.likes = 0;
 			}
 
-			return vote(mediaName, 1);
+			media.likes++;
+
+			return preformVote(media, 1)
+				.then(function() {
+					return updateMedia(angular.copy(media));
+				})
+				.catch(function (err) {
+					console.log(err);
+				});
 		}
 
-		$scope.dislike = function(mediaName) {
-			if($scope.user.likes[mediaName] === -1) {
-				return unvote(mediaName);
+		$scope.dislike = function(media) {
+			var mediaName = media._name;
+
+			if (!media.likes) {
+				media.likes = 0;
 			}
 
-			return vote(mediaName, -1);
+			media.likes--;
+
+			return preformVote(media, -1)
+				.then(function() {
+					return updateMedia(angular.copy(media));
+				})
+				.catch(function (err) {
+					console.log(err);
+				});
 		}
+
+		function preformVote(media, value) {
+			if ($scope.user.likes[media._name] === value) {
+				return unvote(media._name);
+			}
+
+			return vote(media._name, value);
+		}
+
 
 		function refreshMedia() {
 			$scope.medias = [];
@@ -71,6 +100,12 @@ angular.module('orledor')
 					$scope.$apply();
 				});
 		};
+
+		function updateMedia(media) {
+			return firebase.child('multimedia')
+				.child(media._name)
+				.update(media);
+		}
 
 		function vote(mediaName, voteValue) {
 			$scope.user.likes[mediaName] = voteValue;
@@ -113,7 +148,15 @@ angular.module('orledor')
 				return -1;
 			}
 
-			if(aLike < bLike) {
+			if (aLike < bLike) {
+				return 1;
+			}
+
+			if (a.likes > b.likes) {
+				return -1;
+			}
+
+			if (a.likes < b.likes) {
 				return 1;
 			}
 
@@ -121,18 +164,15 @@ angular.module('orledor')
 		}
 
 		function initMediaTypes() {
-			$scope.mediaTypes = [ 
-				{
-					name: '',
-					displayName: 'הצג הכול'
-				},
-				{
-					name: 'Song',
-					displayName: 'מוזיקה'
-				},
-				{
-					name: 'Movie',
-					displayName: 'סרטים'
-				}];
+			$scope.mediaTypes = [{
+				name: '',
+				displayName: 'הצג הכול'
+			}, {
+				name: 'Song',
+				displayName: 'מוזיקה'
+			}, {
+				name: 'Movie',
+				displayName: 'סרטים'
+			}];
 		}
 	});
