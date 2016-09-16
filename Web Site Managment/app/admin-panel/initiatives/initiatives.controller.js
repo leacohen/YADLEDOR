@@ -23,7 +23,7 @@ angular.module('orledor').controller('initiativesController', function($scope, $
     };
 
     $scope.getReporterName = function(userName) {
-        return $scope.usersNames[userName];
+        return $scope.usersNames[userName] || 'לא ידוע';
     }
 
     function loadAllInitiatives() {

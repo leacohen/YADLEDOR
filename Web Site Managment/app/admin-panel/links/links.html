@@ -4,10 +4,13 @@
     </md-card-content>
     <md-card-footer>
         <div flex layout="row" layout-align="space-between">
-            <span><span class="info-header">Type: </span><span>{{ link._type }}</span></span>
-            <span><span class="info-header">Publish Date: </span><span>{{ link._publishDate }}</span></span>
-            <span><span class="info-header">Language: </span><span>{{ link._language }}</span></span>
-            <md-button class="md-primary md-raised" ng-click="delete(link._name)">מחק</md-button>
+            <span><span class="info-header">סוג: </span><span>{{ link._type }}</span></span>
+            <span><span class="info-header">תאריך יציאה: </span><span>{{ link._publishDate | date }}</span></span>
+            <span><span class="info-header">שפות: </span><span>{{ link._language }}</span></span>
+            <md-button class="md-primary md-raised" ng-click="delete(link._name)">
+                <i class="mdi mdi-archive"></i>
+                מחק
+            </md-button>
         </div>
     </md-card-footer>
 </md-card>
