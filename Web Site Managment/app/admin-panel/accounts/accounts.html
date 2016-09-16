@@ -1,7 +1,17 @@
-<md-card layout="row ">		
-	<md-input-container>
-		<label>הזן שם משתמש:</label>
-		<input type="text" ng-model="searchKey">
-	</md-input-container>	
-	<md-button class="md-raised md-mini" href="http://google.com"">חיםוש</md-button>	
-</md-card>
+<div>
+    <md-input-container>
+        <label>הזן שם משתמש:</label>
+        <input type="text" ng-model="filterType._firstName">
+    </md-input-container>
+</div>
+<md-list>
+	<md-list-item class="md-3-line" ng-click="editAccount(user, $event)" ng-repeat="user in allUsers | filter: filterType">
+	  <div class="md-list-item-text " layout="row">				  	
+		  	<div layout="column ">	  	
+		  		<h2>{{ user._firstName }}</h2>		    	
+		    	<p>תאריך לידה: {{ user._birthDate | date }}</p>
+		  	</div>		
+	  </div>
+	  <md-divider ></md-divider>
+	</md-list-item>	
+</md-list>

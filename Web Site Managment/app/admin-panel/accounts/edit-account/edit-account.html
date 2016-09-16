@@ -1,0 +1,19 @@
+<h3>{{ account._userName }}</h3>
+<md-input-container>
+    <label>שם</label>
+    <input type="text" ng-model="account._firstName">
+</md-input-container>
+<div layout="row">
+    <md-input-container>
+        <label>סיסמא</label>
+        <input type="{{ passwordInputType }}" ng-model="account._password">
+    </md-input-container>
+    <span>
+        <md-checkbox ng-model="shouldShowPassword">
+        </md-checkbox>
+        <md-tooltip md-visible="true" md-delay="20" md-direction="top" md-autohide="true">
+            הצג\הסתר סיסמא
+        </md-tooltip>
+    </span>
+</div>
+<md-button class="md-raised md-primary" ng-click="save()">שמור</md-button>
