@@ -1,0 +1,11 @@
+<div class="new-initiatives">
+    <md-input-container>
+        <label>שם היוזמה</label>
+        <input type="text" ng-model="inv.name">
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label>תיאור היוזמה</label>
+        <textarea ng-model="inv.description" rows="5" md-select-on-focus flex></textarea>
+    </md-input-container>
+    <md-button class="md-raised md-primary" ng-click="save()">שמור</md-button>
+</div>

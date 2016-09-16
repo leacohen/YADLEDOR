@@ -1,0 +1,12 @@
+<md-card ng-repeat="inv in initiatives" class="initiatives">
+	<md-card-content>
+		<h2>{{ inv.name }}</h2>
+		<p>{{ inv.description }}</p>
+	</md-card-content>	
+	<md-card-footer>
+		נכתב על ידי: {{ getReporterName(inv.reporter) }}
+	</md-card-footer>
+</md-card>
+<md-button class="new-link md-fab md-primary md-mini" ng-click="createInitiative($event)">
+    <i class="large mdi mdi-note-plus-outline"></i>
+</md-button>
