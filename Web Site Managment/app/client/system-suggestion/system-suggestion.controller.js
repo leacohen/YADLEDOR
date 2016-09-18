@@ -1,5 +1,5 @@
 angular.module('orledor')
-	.controller('systemSuggestionController', function($scope, firebase, loggedUser, $q) {
+	.controller('systemSuggestionController', function($scope, firebase, loggedUser, $q, mediaSort) {
 
 		$scope.isWaitingForMedia = true;
 		initMediaTypes();
@@ -93,7 +93,8 @@ angular.module('orledor')
 					});
 				})
 				.then(function() {
-					$scope.medias.sort(mediaSortAlgoritm);
+					//$scope.medias.sort(mediaSortAlgoritm);
+					$scope.medias = mediaSort.sortSystemSuggest($scope.medias);
 				})
 				.then(function() {
 					$scope.isWaitingForMedia = false;
