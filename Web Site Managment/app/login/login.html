@@ -1,13 +1,15 @@
-<md-card layout="column" layout-align="space-around">
-	<md-input-container>
-        <label>שם משתמש</label>
-        <input ng-model="user.userName">
-      </md-input-container>
+<div layout="column" layout-align="center center">
+	<md-card layout="column" layout-padding>
+		<md-input-container>
+	        <label>שם משתמש</label>
+	        <input ng-model="user.userName">
+	      </md-input-container>
 
-      <md-input-container>
-        <label>סיסמא</label>
-        <input type="password" ng-model="user.password">
-      </md-input-container>
+	      <md-input-container>
+	        <label>סיסמא</label>
+	        <input type="password" ng-model="user.password">
+	      </md-input-container>
 
-      <md-button class="md-primary" ng-click="login($event)">התחבר</md-button>
-</md-card>
+	      <md-button class="md-primary" ng-click="login($event)">התחבר</md-button>
+	</md-card>
+</div>
