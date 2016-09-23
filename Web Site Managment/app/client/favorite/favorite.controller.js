@@ -1,25 +1,13 @@
 angular.module('orledor')
-    .controller('favoriteController', function($scope, firebase, loggedUser, $q, $mdDialog) {
+    .controller('favoriteController', function($scope, firebase, loggedUser, $q, $mdDialog, mediaSort) {
 
-    	$scope.isWaitingForMedia = true;
+        $scope.isWaitingForMedia = true;
         initMediaTypes();
 
-        var promise = $q.resolve();
-        if (!loggedUser.getUser()) {
-            // TODO: Temp!!! autologin to a@aa
-            promise = firebase.child("users").child("leacohen").once("value")
-                .then(function(user) {
-                    var userValue = user.val();
-                    loggedUser.setUser(userValue);
-                })
-        }
+        $scope.user = loggedUser.getUser();
+        $scope.user.likes = $scope.user.likes || {};
 
-        promise.then(function() {
-            $scope.user = loggedUser.getUser();
-            $scope.user.likes = $scope.user.likes || {};
-
-            refreshMedia();
-        })
+        refreshMedia();
 
         $scope.mediaTypeToMdi = function(type) {
             if (type === 'Song') {
@@ -51,8 +39,8 @@ angular.module('orledor')
 
                     $scope.user._userMultimedia.push(favorite);
                 })
-                .then(refreshMedia)
-                .then(updateUser);
+                .then(updateUser)
+                .then(refreshMedia);
         };
 
         function refreshMedia() {
@@ -70,12 +58,16 @@ angular.module('orledor')
                 .then(function() {
                     if ($scope.user._userMultimedia) {
                         $scope.user._userMultimedia.forEach(function(userMedia) {
-                            $scope.medias.push(angular.copy(userMedia));
+                            var userMedia = angular.copy(userMedia);
+
+                            userMedia.userMedia = true;
+
+                            $scope.medias.push(userMedia);
                         });
                     }
                 })
                 .then(function() {
-                    $scope.medias.sort(mediaSortAlgoritm);
+                    $scope.medias = mediaSort.sortFavorite($scope.medias);
                 })
                 .then(function() {
                     $scope.isWaitingForMedia = false;
@@ -87,11 +79,6 @@ angular.module('orledor')
             return firebase.child('users')
                 .child($scope.user._userName)
                 .update($scope.user);
-        }
-
-        function mediaSortAlgoritm(a, b) {
-
-            return 0;
         }
 
         function initMediaTypes() {

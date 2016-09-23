@@ -1,7 +1,6 @@
 angular.module('orledor').controller('initiativesController', function($scope, $mdDialog, firebase, loggedUser) {
 
-    loadUsersNames()
-        .then(loadAllInitiatives);
+    loadUsersNames().then(loadAllInitiatives);
 
     $scope.createInitiative = function(ev) {
         return $mdDialog.show({
@@ -37,7 +36,7 @@ angular.module('orledor').controller('initiativesController', function($scope, $
                 $scope.$apply();
             });
     };
-
+ 
     function loadUsersNames() {
         return firebase.child("users").once("value")
             .then(function(users) {

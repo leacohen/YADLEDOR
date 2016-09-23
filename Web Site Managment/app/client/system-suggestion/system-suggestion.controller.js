@@ -92,8 +92,7 @@ angular.module('orledor')
 						$scope.medias.push(newMedia);
 					});
 				})
-				.then(function() {
-					//$scope.medias.sort(mediaSortAlgoritm);
+				.then(function() {					
 					$scope.medias = mediaSort.sortSystemSuggest($scope.medias);
 				})
 				.then(function() {

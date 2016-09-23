@@ -23,7 +23,17 @@ angular.module('orledor').service('mediaSort', function($rootScope, loggedUser) 
     }
 
     function sortFavorite(medias) {
-        return sortAlgoritem(medias);
+    	var sortedMedias = [];
+
+        sortedMedias = _.filter(medias, function(media) {
+        	return media.userMedia;
+        });
+
+        sortedMedias = sortedMedias.concat(sortAlgoritem(_.filter(medias, function(media) {
+        	return !media.userMedia;
+        })));
+
+        return sortedMedias;
     }
 
     function sortAlgoritem(medias) {
@@ -71,7 +81,6 @@ angular.module('orledor').service('mediaSort', function($rootScope, loggedUser) 
     }
 
     function getYearRange(rangeIndex) {
-
         return {
             top: baseAge + (5 * rangeIndex),
             bottom: baseAge - (5 * rangeIndex)
