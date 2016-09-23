@@ -5,27 +5,23 @@
                 <h2>הוספת מועדף</h2>
             </div>
         </md-toolbar>
-        <md-dialog-content layout-padding layout="column">
-            <md-input-container>
-                <label>שם הקישור</label>
-                <input ng-model="favorite._name">
-            </md-input-container>
-            <md-input-container>
-                <label>כתובת</label>
-                <input ng-model="favorite._link">
-            </md-input-container>
-                <label>סוג</label>
-                <md-select ng-model="favorite._type">
-                    <md-option value="Song">שיר</md-option>
-                    <md-option value="Movie">סרט</md-option>
-                    <md-option value="Other">אחר</md-option>
-                </md-select>
-            </md-input-container>
-        </md-dialog-content>
-        <md-dialog-actions layout="row">
-            <md-button ng-click="saveFavorite()" md-autofocus>
-                שמור
-            </md-button>
-        </md-dialog-actions>
+        <md-input-container>
+            <label>שם הקישור</label>
+            <input ng-model="favorite._name">
+        </md-input-container>
+        <md-input-container>
+            <label>כתובת</label>
+            <input ng-model="favorite._link">
+        </md-input-container>
+        <md-select-label>סוג</md-select-label>
+        <md-select ng-model="favorite._type">
+            <md-option value="Song">שיר</md-option>
+            <md-option value="Movie">סרט</md-option>
+            <md-option value="Other">אחר</md-option>
+        </md-select>
+        </md-input-container>
+        <md-button ng-click="saveFavorite()" md-autofocus>
+            שמור
+        </md-button>
     </form>
 </md-dialog>
