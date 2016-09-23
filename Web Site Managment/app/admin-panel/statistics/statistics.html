@@ -1,0 +1,38 @@
+<div flex="none" layout="row" layout-wrap layout-align="space-around">
+    <md-card flex="40" layout="column" layout-align="center center">
+        <md-card-content>
+            <h2>סוגי מדיות</h2>
+        </md-card-content>
+        <md-progress-circular ng-if="!mediaTypeLoaded" class="md-hue-2" md-diameter="100px" md-mode='indeterminate'>
+        </md-progress-circular>
+        <canvas id="pie" class="chart chart-pie" chart-data="mediaType_data" chart-labels="mediaType_labels">
+        </canvas>
+    </md-card>
+    <md-card flex="40" layout="column" layout-align="center center">
+        <md-card-content>
+            <h2>שפות מדוברות על ידי הדיירים</h2>
+        </md-card-content>
+        <md-progress-circular ng-if="!spokenLanguagesLoaded" class="md-hue-2" md-diameter="100px" md-mode='indeterminate'>
+        </md-progress-circular>
+        <canvas id="pie" class="chart chart-pie" chart-data="spokenLanguages_data" chart-labels="spokenLanguages_labels">
+        </canvas>
+    </md-card>
+    <md-card flex="40" layout="column" layout-align="center center">
+        <md-card-content>
+            <h2>10 המדיות שאהבו ביותר</h2>
+        </md-card-content>
+        <md-progress-circular ng-if="!top10mediasLoaded" class="md-hue-2" md-diameter="100px" md-mode='indeterminate'>
+        </md-progress-circular>
+        <canvas id="base" class="chart chart-bar" chart-data="top10medias_data" chart-labels="top10medias_labels">
+        </canvas>
+    </md-card>
+    <md-card flex="40" layout="column" layout-align="center center">
+        <md-card-content>
+            <h2>כמות מדיות לפי שפה</h2>
+        </md-card-content>
+        <md-progress-circular ng-if="!mediaLanguagesLoaded" class="md-hue-2" md-diameter="100px" md-mode='indeterminate'>
+        </md-progress-circular>
+        <canvas id="pie" class="chart chart-pie" chart-data="mediaLanguages_data" chart-labels="mediaLanguages_labels">
+        </canvas>
+    </md-card>
+</div>

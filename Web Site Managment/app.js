@@ -1,4 +1,4 @@
-angular.module('orledor', ['ui.router', 'ngMaterial']);
+angular.module('orledor', ['ui.router', 'ngMaterial', 'chart.js']);
 
 angular.module('orledor')
 	.config(function($urlRouterProvider) {
