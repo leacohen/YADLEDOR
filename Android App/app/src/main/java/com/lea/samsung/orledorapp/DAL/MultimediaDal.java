@@ -8,6 +8,7 @@ import com.lea.samsung.orledorapp.Inerfaces.IMultimediaAction;
 import com.lea.samsung.orledorapp.Logger.Logger;
 import com.lea.samsung.orledorapp.Models.Multimedia;
 import com.lea.samsung.orledorapp.Models.MultimediaType;
+import com.lea.samsung.orledorapp.Models.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,16 @@ public class MultimediaDal extends BaseDal {
                 multimediaAction.noMatchFound();
             }
         });
+    }
+
+    public boolean SaveMultimedia(Multimedia media) {
+        try {
+            _multimediaCollection.child(media.get_name()).setValue(media);
+            return true;
+        } catch (Exception ex) {
+            Logger.LogErrorWithException("Failed to save user", ex);
+            return false;
+        }
     }
 
     public Boolean AddMultimedia(Multimedia s) {

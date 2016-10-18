@@ -14,7 +14,7 @@ angular.module('orledor').controller('shellController', function($scope, $state,
 
 		else {
 			$scope.isUserLogged = false;
-			$state.go('login');
+			//$state.go('login');
 		}
 	}	
 });

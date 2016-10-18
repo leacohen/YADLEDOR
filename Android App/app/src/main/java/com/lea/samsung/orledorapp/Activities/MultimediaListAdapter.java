@@ -3,11 +3,13 @@ package com.lea.samsung.orledorapp.Activities;
 import java.lang.Object;
 import java.lang.Override;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.text.style.UpdateLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lea.samsung.orledorapp.Common.UserContext;
 import com.lea.samsung.orledorapp.Inerfaces.IRecommended;
+import com.lea.samsung.orledorapp.Logic.MultimediaLogic;
 import com.lea.samsung.orledorapp.Models.Multimedia;
 import com.lea.samsung.orledorapp.Models.MultimediaType;
 import com.lea.samsung.orledorapp.R;
@@ -65,9 +69,6 @@ public class MultimediaListAdapter extends BaseAdapter {
         TextView lblDate = (TextView)convertView.findViewById(R.id.multimedia_date);
         ImageView ivSign = (ImageView)convertView.findViewById(R.id.lvSign);
 
-        setLikeClicks((ImageView)convertView.findViewById(R.id.lvLike),
-                (ImageView)convertView.findViewById(R.id.lvDislike));
-
         // getting movie data for the row
         final IRecommended m = multimedias.get(position);
 
@@ -76,6 +77,19 @@ public class MultimediaListAdapter extends BaseAdapter {
 
         if(m instanceof  Multimedia) {
             Multimedia multimedia = (Multimedia) m;
+
+            ImageView ivLike = (ImageView) convertView.findViewById(R.id.lvLike);
+            ImageView ivDislike = (ImageView) convertView.findViewById(R.id.lvDislike);
+
+            setLikeClicks(
+                    ivLike,
+                    ivDislike,
+                    multimedia);
+
+            setLikeColors(
+                    ivLike,
+                    ivDislike,
+                    multimedia.get_name());
 
             if(multimedia.get_type() == MultimediaType.Song) {
                 ivSign.setImageResource(R.drawable.music_sign);
@@ -100,18 +114,52 @@ public class MultimediaListAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private void setLikeClicks(final ImageView like, final ImageView dislike) {
+    private void setLikeColors(
+            ImageView ivLike,
+            ImageView ivDislike,
+            String mediaName) {
+        HashMap userLikes = UserContext.getLoggedUser().getLikes();
+
+        if(!userLikes.containsKey(mediaName)) {
+            ivLike.setColorFilter(Color.BLACK);
+            ivDislike.setColorFilter(Color.BLACK);
+
+            return;
+        }
+
+        int userLikeValue = (int)userLikes.get(mediaName);
+
+        if(userLikeValue == 1) {
+            ivLike.setColorFilter(Color.GREEN);
+            ivDislike.setColorFilter(Color.BLACK);
+        }
+
+        else if(userLikeValue == -1) {
+            ivLike.setColorFilter(Color.BLACK);
+            ivDislike.setColorFilter(Color.RED);
+        }
+    }
+
+    private void setLikeClicks(
+            final ImageView like,
+            final ImageView dislike,
+            final Multimedia media) {
+
+
+
         like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(like.getContext(),"like is not functional yet", Toast.LENGTH_SHORT).show();
+                new MultimediaLogic().Like(media);
+                notifyDataSetChanged();
             }
         });
 
         dislike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(dislike.getContext(),"like is not functional yet", Toast.LENGTH_SHORT).show();
+                new MultimediaLogic().Dislike(media);
+                notifyDataSetChanged();
             }
         });
     }
