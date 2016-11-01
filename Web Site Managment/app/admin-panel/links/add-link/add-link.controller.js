@@ -24,6 +24,10 @@ angular.module('orledor').controller('addLinkController', function($scope, $mdDi
 
 	};
 
+	$scope.publishDateReminder = function () {
+		$mdToast.showSimple('אנא ביחרו את תאריך ההוצאה המדויק, אלגוריתם החיפוש משתמש בתאריכים אלו');
+	};
+
 	function ensureFields() {
 		if (!$scope.link._name) {
 			return $q.reject('מדיה חייבת להכיל שם');

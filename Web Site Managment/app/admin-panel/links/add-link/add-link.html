@@ -18,7 +18,8 @@
                 <label>ארץ פירסום</label>
                 <input ng-model="">
             </md-input-container>
-                <md-datepicker ng-model="publishDate" md-placeholder="תאריך הוצאה" ng-hide="link._type === 'Other'"></md-datepicker>
+                <md-datepicker 
+                ng-click="publishDateReminder()" ng-model="publishDate" md-placeholder="תאריך הוצאה" ng-hide="link._type === 'Other'"></md-datepicker>
             <md-input-container>
                 <label>סוג</label>
                 <md-select ng-model="link._type">
