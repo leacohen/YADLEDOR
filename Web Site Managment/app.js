@@ -2,5 +2,5 @@ angular.module('orledor', ['ui.router', 'ngMaterial', 'chart.js']);
 
 angular.module('orledor')
 	.config(function($urlRouterProvider) {
-    	$urlRouterProvider.otherwise('/login');
+		$urlRouterProvider.when('', '/login');    	
     });
