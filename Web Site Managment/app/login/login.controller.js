@@ -59,6 +59,10 @@ angular.module('orledor')
 				return $q.reject('נא להזין את הסיסמא');
 			}
 
+			if($scope.user.password.length < 5) {
+				return $q.reject('אורך הסיסמא חייב להיות לפחות 5 תווים');
+			}
+
 			return $q.resolve();
 		}
 	});
