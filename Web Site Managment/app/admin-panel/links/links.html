@@ -7,7 +7,7 @@
             <span><span class="info-header">סוג: </span><span>{{ link._type }}</span></span>
             <span><span class="info-header">תאריך יציאה: </span><span>{{ link._publishDate | date }}</span></span>
             <span><span class="info-header">שפות: </span><span>{{ link._language }}</span></span>
-            <md-button class="md-primary md-raised" ng-click="delete(link._name)">
+            <md-button class="md-primary md-raised" ng-click="delete($event, link._name)">
                 <i class="mdi mdi-archive"></i>
                 מחק
             </md-button>
