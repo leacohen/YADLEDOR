@@ -4,12 +4,14 @@
     </md-card-content>
     <md-card-footer>
         <div flex layout="row" layout-align="space-between">
-            <span><span class="info-header">סוג: </span><span>{{ link._type }}</span></span>
+            <div>
+                <div><span class="info-header">סוג: </span><span>{{ link._type }}</span></div>
+                <div ng-if="link._subcategory"><span class="info-header">תת קטגוריה: </span><span>{{ link._subcategory }}</span></div>
+            </div>
             <span><span class="info-header">תאריך יציאה: </span><span>{{ link._publishDate | date }}</span></span>
             <span><span class="info-header">שפות: </span><span>{{ link._language }}</span></span>
             <md-button class="md-primary md-raised" ng-click="delete($event, link._name)">
-                <i class="mdi mdi-archive"></i>
-                מחק
+                <i class="mdi mdi-archive"></i> מחק
             </md-button>
         </div>
     </md-card-footer>
@@ -17,6 +19,6 @@
 <md-button class="new-link md-fab md-primary md-mini" ng-click="createLink($event)">
     <i class="large mdi mdi-note-plus-outline"></i>
     <md-tooltip md-delay="20" md-direction="top" md-autohide="true">
-            הוסף לינק
+        הוסף לינק
     </md-tooltip>
 </md-button>
