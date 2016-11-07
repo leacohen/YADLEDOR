@@ -11,7 +11,12 @@
             <md-list>
                 <md-list-item ng-repeat="subcategory in category.subcategories">
                     <div layout="row" layout-align="space-between" flex>
+                        <a ui-sref="subcategories({
+                            type: category.name,
+                            category: subcategory
+                        })">
                         {{$index + 1}}. {{ subcategory }}
+                        </a>                        
                     </div>
                     <md-divider></md-divider>
                 </md-list-item>

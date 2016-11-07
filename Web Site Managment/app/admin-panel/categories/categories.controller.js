@@ -1,4 +1,4 @@
-angular.module('orledor').controller('categoriesController', function($scope, $mdDialog, firebase, loggedUser) {
+angular.module('orledor').controller('categoriesController', function($scope, $mdDialog, firebase, loggedUser, mediaTypeToMdi) {
     loadCategories()
         .then(initMissingCategories)
         .then(function() {
@@ -29,17 +29,7 @@ angular.module('orledor').controller('categoriesController', function($scope, $m
             });
     }
 
-    $scope.mediaTypeToMdi = function(type) {
-            if (type === 'Song') {
-                return 'mdi-music-note'
-            }
-
-            if (type === 'Movie') {
-                return 'mdi-movie';
-            }
-
-            return 'mdi-account';
-        }
+    $scope.mediaTypeToMdi = mediaTypeToMdi.mediaTypeToMdi;
 
     function warningDeleteAlert(event, mediaName) {
         return $mdDialog.show(

@@ -1,12 +1,12 @@
 angular.module('orledor')
-    .controller('myCategoriesController', function ($scope, firebase) {
+    .controller('myCategoriesController', function($scope, firebase) {
 
         $scope.categories = [];
 
         loadMedias()
-            .then($scope.$apply);
+            .then(function() { $scope.$apply(); });
 
-        $scope.mediaTypeToMdi = function (type) {
+        $scope.mediaTypeToMdi = function(type) {
             if (type === 'Song') {
                 return 'mdi-music-note'
             }
@@ -20,14 +20,14 @@ angular.module('orledor')
 
         function loadMedias() {
             return firebase.child('multimedia').once('value')
-                .then(function (mult) {
-                    $scope.categories = _.map(_.groupBy(_.filter(_.values(mult.val()), function (media) {
+                .then(function(mult) {
+                    $scope.categories = _.map(_.groupBy(_.filter(_.values(mult.val()), function(media) {
                         return !!media._subcategory;
-                    }), '_type'), function (medias, type) {
+                    }), '_type'), function(medias, type) {
                         return {
                             name: type,
                             subcategories: _.map(
-                                _.uniqBy(medias, '_subcategory'), function (media) {
+                                _.uniqBy(medias, '_subcategory'), function(media) {
                                     return media._subcategory;
                                 })
                         };

@@ -1,5 +1,5 @@
 angular.module('orledor')
-    .controller('favoriteController', function($scope, firebase, loggedUser, $q, $mdDialog, mediaSort) {
+    .controller('favoriteController', function($scope, firebase, loggedUser, $q, $mdDialog, mediaSort, mediaTypeToMdi) {
 
         $scope.isWaitingForMedia = true;
         initMediaTypes();
@@ -9,17 +9,7 @@ angular.module('orledor')
 
         refreshMedia();
 
-        $scope.mediaTypeToMdi = function(type) {
-            if (type === 'Song') {
-                return 'mdi-music-note'
-            }
-
-            if (type === 'Movie') {
-                return 'mdi-movie';
-            }
-
-            return 'mdi-account';
-        }
+        $scope.mediaTypeToMdi = mediaTypeToMdi.mediaTypeToMdi;
 
         $scope.openLink = function(linkUrl) {
             window.open(linkUrl, '_blank').focus();
