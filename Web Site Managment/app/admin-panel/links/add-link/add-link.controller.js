@@ -1,11 +1,18 @@
 angular.module('orledor').controller('addLinkController', function($scope, $mdDialog, $q, $mdToast, firebase) {
 	$scope.link = {};
+	$scope.subcategories = {};
+
+	loadCategories();
 
 	$scope.saveLink = function() {
 		return ensureFields()
 			.then(function() {
 				if ($scope.link._type !== 'Other') {
 					$scope.link._publishDate = $scope.publishDate.toISOString();
+				}
+
+				if(!$scope.link._subcategory) {
+					delete $scope.link._subcategory;
 				}
 
 				// TODO: shold impl langs..
@@ -27,6 +34,23 @@ angular.module('orledor').controller('addLinkController', function($scope, $mdDi
 	$scope.publishDateReminder = function () {
 		$mdToast.showSimple('אנא ביחרו את תאריך ההוצאה המדויק, אלגוריתם החיפוש משתמש בתאריכים אלו');
 	};
+
+	$scope.isAnySubcateogoryForType = function (type) {				
+		return _.some($scope.subcategories, function (subcategory) {
+			return subcategory.name == type && subcategory.subcategories && subcategory.subcategories.length;
+		});	
+	}	
+
+	$scope.getSubcategories = function (type) {
+		return _.find($scope.subcategories, { 'name': type }).subcategories;
+	}
+
+	function loadCategories() {
+        return firebase.child('categories').once('value')
+            .then(function(mult) {
+                $scope.subcategories = _.values(mult.val());
+            });
+    }
 
 	function ensureFields() {
 		if (!$scope.link._name) {
