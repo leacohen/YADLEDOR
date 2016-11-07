@@ -13,6 +13,8 @@ public class Multimedia extends BaseMultimedia {
     private String _language;
 	private int likes;
 
+    private String _subcategory;
+
     public Date get_publishDate() {
         return _publishDate;
     }
@@ -36,5 +38,13 @@ public class Multimedia extends BaseMultimedia {
 	public void setLikes(int likes) {
 		this.likes = likes;
 	}
+
+    public String get_subcategory() {
+        return _subcategory;
+    }
+
+    public void set_subcategory(String _subcategory) {
+        this._subcategory = _subcategory;
+    }
 }
 
