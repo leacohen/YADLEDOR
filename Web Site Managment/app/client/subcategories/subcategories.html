@@ -1,0 +1,27 @@
+<div layout="row" layout-align="space-around">
+    <md-card flex ng-repeat="category in categories">
+        <md-card-content>
+            <h2>
+            <i class="mdi {{ mediaTypeToMdi(category.name) }} mdi-36px md-avatar"></i>
+            {{ category.name }}
+            </h2>
+        </md-card-content>
+        <md-divider></md-divider>
+        <md-card-footer>
+            <md-list>
+                <md-list-item ng-repeat="subcategory in category.subcategories">
+                    <div layout="row" layout-align="space-between" flex>
+                        {{$index + 1}}. {{ subcategory }}
+                        <i class="mdi mdi-delete-forever mdi-24px" ng-click="delete($event, category, subcategory)"></i>
+                    </div>
+                    <md-divider></md-divider>
+                </md-list-item>
+            </md-list>
+            <div layout="row">
+                <md-button ng-click="addSubcateogty($event, category)" class="md-raised md-primary" flex>
+                    הוסף תת קטגוריה!
+                </md-button>
+            </div>
+        </md-card-footer>
+    </md-card>
+</div>
