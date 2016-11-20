@@ -38,7 +38,10 @@ angular.module('orledor').service('mediaSort', function($rootScope, loggedUser) 
 
     function sortAlgoritem(medias) {
         var sortedMedias = [];
-        var baseMedias = angular.copy(medias);
+        var baseMedias = angular.copy(medias).filter(function (media) {
+            return media._type !== 'Other';
+        });
+        
         var rangeIndex = 1;
 
         while (baseMedias.length) {
