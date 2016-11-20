@@ -39,10 +39,15 @@ public class UserDal extends BaseDal {
         });
     }
 
-    public boolean SaveUser(User user)
-    {
+    public boolean SaveUser(User user) {
+        String userName = user.get_userName();
+        if(userName == null || userName.isEmpty())
+        {
+            return false;
+        }
+
         try {
-            _usersCollection.child(user.get_userName()).setValue(user);
+            _usersCollection.child(userName).setValue(user);
             return true;
         }
         catch (Exception ex) {

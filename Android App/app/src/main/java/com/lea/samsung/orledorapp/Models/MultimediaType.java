@@ -5,6 +5,4 @@ public enum MultimediaType
     Song,
     Movie,
     Other,
-    MemoryGame,
-    ClassicMusic
 }

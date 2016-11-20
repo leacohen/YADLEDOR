@@ -77,13 +77,16 @@ public class SignUpActivity extends AppCompatActivity implements MultiSpinner.Mu
 
                 // TODO: temp all users born in israel. talk with Lea
                 // TODO: Very Bad year practice, not implemented. talk with Lea
-                Boolean isSignUpSucceed = new SignupLogic().SignUp(
-                        ((EditText) findViewById(R.id.email_sign_up_textview)).getText().toString(),
-                        ((EditText) findViewById(R.id.sign_up_password)).getText().toString(),
-                        ((EditText) findViewById(R.id.sign_up_fullName)).getText().toString(),
-                        "", // TODO: rethink if should split to first name and last name. remove if not
-                        selectedDate,
-                        selectedLanguages);
+                Boolean isSignUpSucceed = false;
+                if(validateSignupFields()) {
+                    isSignUpSucceed = new SignupLogic().SignUp(
+                            ((EditText) findViewById(R.id.email_sign_up_textview)).getText().toString(),
+                            ((EditText) findViewById(R.id.sign_up_password)).getText().toString(),
+                            ((EditText) findViewById(R.id.sign_up_fullName)).getText().toString(),
+                            "", // TODO: rethink if should split to first name and last name. remove if not
+                            selectedDate,
+                            selectedLanguages);
+                }
 
                 if (isSignUpSucceed) {
                     Intent intent = new Intent(getApplicationContext(), MainFavoriteActivity.class);
@@ -95,6 +98,42 @@ public class SignUpActivity extends AppCompatActivity implements MultiSpinner.Mu
                 }
             }
         });
+    }
+
+    private boolean validateSignupFields() {
+        if (((EditText) findViewById(R.id.email_sign_up_textview)).getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "חובה למלא שם משתמש", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (((EditText) findViewById(R.id.sign_up_password)).getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "חובה למלא סיסמא", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (((EditText) findViewById(R.id.sign_up_re_password)).getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "חובה למלא ווידוא סיסמא", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (!((EditText) findViewById(R.id.sign_up_re_password)).getText().toString().equals(((EditText) findViewById(R.id.sign_up_password)).getText().toString())) {
+            Toast.makeText(getApplicationContext(), "הסיסמא והווידוא סיסמא שונות זו מזו", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (((EditText) findViewById(R.id.sign_up_fullName)).getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "חובה למלא שם מלא", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (selectedDate == null) {
+            Toast.makeText(getApplicationContext(), "חובה למלא תאריך לידה", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (selectedLanguages.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "חובה למלא שפות מדוברות", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
     }
 
     @Override

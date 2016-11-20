@@ -44,7 +44,9 @@ public class MainFavoriteActivity extends AppCompatActivity {
         findViewById(R.id.btnFavoriteOthers).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Not implimented yet", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), OtherCategoriesActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getApplicationContext().startActivity(intent);
             }
         });
     }

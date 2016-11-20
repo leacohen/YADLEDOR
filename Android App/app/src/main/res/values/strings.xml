@@ -53,4 +53,5 @@
     <string name="btnFavoriteOthers">לצפיה בתכנים נוספים שאולי יעניינו אותך לחצ/י</string>
     <string name="lvLanguage">שפה</string>
     <string name="lvDate">תאריך</string>
+    <string name="title_activity_other_categories">OtherCategoriesActivity</string>
 </resources>

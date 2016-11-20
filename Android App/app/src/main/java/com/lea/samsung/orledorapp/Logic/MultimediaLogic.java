@@ -25,6 +25,7 @@ public class MultimediaLogic implements IMultimediaAction {
     private static final int UNLIKE_VALUE = 0;
     private static final int DISLIKE_VALUE = -1;
 
+    private String Subcategory = null;
 
     private IRecommendedActivity _irecommendedActivity;
 
@@ -42,6 +43,13 @@ public class MultimediaLogic implements IMultimediaAction {
 
     public void LoadSpecificMultimedia(MultimediaType type) {
         new MultimediaDal().GetAllMultimedia(this, type);
+    }
+
+    public void LoadCategoryMultimedias(
+            MultimediaType type,
+            String subcategory) {
+        Subcategory = subcategory;
+        LoadSpecificMultimedia(type);
     }
 
     public void Dislike(Multimedia media)
@@ -131,21 +139,28 @@ public class MultimediaLogic implements IMultimediaAction {
         Date endDateFilter = new Date(userBirthday.getYear() + 30, 1, 1);
 
         for (BaseMultimedia userMultimedia : UserContext.getLoggedUser().get_userMultimedia()) {
-            if (type == null || userMultimedia.get_type() == type) {
+            if (Subcategory == null && (type == null || userMultimedia.get_type() == type))  {
                 finalMultimedia.add(userMultimedia);
             }
         }
 
         for (Multimedia currentMultimedia : multimedias) {
-            if(currentMultimedia.get_type() == MultimediaType.Movie || currentMultimedia.get_type() == MultimediaType.Song) {
-                if(userLanguages.contains(currentMultimedia.get_language())
+            if(Subcategory != null)
+            {
+                if(currentMultimedia.get_subcategory() != null &&
+                        currentMultimedia.get_subcategory().equals(Subcategory)) {
+                    finalMultimedia.add(currentMultimedia);
+                }
+            }
+            else if(currentMultimedia.get_type() == MultimediaType.Movie || currentMultimedia.get_type() == MultimediaType.Song) {
+                if((userLanguages.contains(currentMultimedia.get_language())
                         && currentMultimedia.get_publishDate().after(startDateFilter)
-                        && currentMultimedia.get_publishDate().before(endDateFilter))
+                        && currentMultimedia.get_publishDate().before(endDateFilter)))
                 {
                     finalMultimedia.add(currentMultimedia);
                 }
             }
-            else if (type != null){
+            else if (type != null || (Subcategory != null && currentMultimedia.get_subcategory().equals(Subcategory))){
                 finalMultimedia.add(currentMultimedia);
             }
         }

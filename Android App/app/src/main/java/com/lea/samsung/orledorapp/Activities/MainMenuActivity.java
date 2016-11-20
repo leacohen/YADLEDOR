@@ -213,13 +213,8 @@ public class MainMenuActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             startActivity(new Intent(this, SongsActivity.class));
-        } else if (id == R.id.nav_gallery) {
-            startActivity(new Intent(this, MemoryGameActivity.class));
-
         } else if (id == R.id.nav_slideshow) {
             startActivity(new Intent(this,MovieActivity.class));
-        } else if (id == R.id.nav_classic_music) {
-            startActivity(new Intent(this, ClassicMusicActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
