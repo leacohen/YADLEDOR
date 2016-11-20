@@ -106,9 +106,11 @@ public class MultimediaListAdapter extends BaseAdapter {
             lblLanguages.setVisibility(View.VISIBLE);
             lblLanguages.setText(activity.getString(R.string.lvLanguage) + ": " + multimedia.get_language());
 
-            lblDate.setVisibility(View.VISIBLE);
-            lblDate.setText(activity.getString(R.string.lvDate) + ": " +
-                    android.text.format.DateFormat.format("yyyy/MM/dd", multimedia.get_publishDate()));
+            if(multimedia.get_publishDate() != null) {
+                lblDate.setVisibility(View.VISIBLE);
+                lblDate.setText(activity.getString(R.string.lvDate) + ": " +
+                        android.text.format.DateFormat.format("yyyy/MM/dd", multimedia.get_publishDate()));
+            }
         }
 
         return convertView;
