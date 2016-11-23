@@ -14,10 +14,12 @@
                 <label>כתובת</label>
                 <input ng-model="link._link">
                 </md-input-container>
-            <md-input-container ng-if="false">
-                <label>ארץ פירסום</label>
-                <input ng-model="">
-            </md-input-container>
+
+            <md-input-container>
+			<md-select ng-model="link._language" placeholder="שפת המדיה" ng-hide="link._type === 'Other'">
+				<md-option ng-value="lan" ng-repeat="lan in languages">{{ lan }}</md-option>
+			</md-select>
+		</md-input-container>
                 <md-datepicker 
                 ng-click="publishDateReminder()" ng-model="publishDate" md-placeholder="תאריך הוצאה" ng-hide="link._type === 'Other'"></md-datepicker>
             <md-input-container>

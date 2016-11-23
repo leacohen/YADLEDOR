@@ -1,8 +1,16 @@
-angular.module('orledor').controller('addLinkController', function($scope, $mdDialog, $q, $mdToast, firebase) {
+angular.module('orledor').controller('addLinkController', function($scope, $mdDialog, $q, $mdToast, languages, firebase) {
 	$scope.link = {};
 	$scope.subcategories = {};
 
 	loadCategories();
+
+	languages
+			.then(function (res) {
+				$scope.languages = res;
+			})
+			.then(function () {
+				$scope.$apply();
+			});
 
 	$scope.saveLink = function() {
 		return ensureFields()
@@ -14,9 +22,6 @@ angular.module('orledor').controller('addLinkController', function($scope, $mdDi
 				if(!$scope.link._subcategory) {
 					delete $scope.link._subcategory;
 				}
-
-				// TODO: shold impl langs..
-				$scope.link._language = "Hebrew";
 
 				return firebase.child('multimedia').child($scope.link._name).set($scope.link);
 			})
