@@ -51,7 +51,10 @@
             android:name=".Activities.OtherCategoriesActivity"
             android:label="@string/title_activity_other_categories"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activities.SpessficSubcategoryActivity"></activity>
+        <activity
+            android:name=".Activities.SpessficSubcategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>
