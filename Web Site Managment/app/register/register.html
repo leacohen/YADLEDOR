@@ -1,0 +1,33 @@
+<div layout="column" layout-align="center center">
+	<md-card layout="column" layout-padding>
+		<md-input-container>
+			<label>שם משתמש</label>
+			<input ng-model="user._userName">
+		</md-input-container>
+
+		<md-input-container>
+			<label>סיסמא</label>
+			<input type="password" ng-model="user._password">
+		</md-input-container>
+
+		<md-input-container>
+			<label>וודא סיסמא</label>
+			<input type="password" ng-model="retypePassword">
+		</md-input-container>
+
+		<md-input-container>
+			<label>שם מלא</label>
+			<input ng-model="user._firstName">
+		</md-input-container>
+
+		<md-datepicker ng-model="selectedBirthDate" md-placeholder="שנת לידה"></md-datepicker>
+
+		<md-input-container>
+			<md-select ng-model="user._language" placeholder="שפות מדוברות" multiple="true">
+				<md-option ng-value="lan" ng-repeat="lan in languages">{{ lan }}</md-option>
+			</md-select>
+		</md-input-container>
+
+		<md-button class="md-primary" ng-click="register($event)">הירשם</md-button>
+	</md-card>
+</div>

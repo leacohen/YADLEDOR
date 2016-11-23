@@ -9,6 +9,14 @@ angular.module('orledor').controller('editAccountController', function($scope, $
         }
     });
 
+    var initIsAdminWatch = false;
+    $scope.$watch('account._isAdmin', function () {
+        if(initIsAdminWatch) {
+            $mdToast.show($mdToast.simple().textContent('שים לב! הפיכת משתמש למנהל תיתן לאותו המשתש הרשאות על המערכת!'));
+        } 
+        initIsAdminWatch = true;       
+    });
+
     $scope.save = function() {
         return validateUser()
             .then(function() {
