@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#e6e6fee0"
     android:orientation="vertical"
-    android:background="#e6e6fee0">
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </android.support.design.widget.TextInputLayout>
+    android:backgroundDimEnabled="false"
+    android:windowTitleStyle="@null"
+    android:windowBackground="@android:color/transparent"
+    android:windowContentOverlay="@null"
+    >
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="        אנא מלא את השדות הבאים        "
-        android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
+        android:text="אנא מלא את השדות הבאים"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#035438"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
-    <AutoCompleteTextView
+    <EditText
         android:id="@+id/input_name"
         android:layout_width="match_parent"
         android:layout_height="65dp"
@@ -27,21 +27,14 @@
         android:maxLines="1"
         android:singleLine="true" />
 
-    <android.support.design.widget.TextInputLayout
+    <EditText
+        android:id="@+id/input_link"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/input_link"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:hint="כתובת קישור"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:clickable="false" />
-
-
-    </android.support.design.widget.TextInputLayout>
+        android:layout_height="65dp"
+        android:clickable="false"
+        android:hint="כתובת קישור"
+        android:maxLines="1"
+        android:singleLine="true" />
 
     <Spinner
         android:id="@+id/multimedia_spinner"
@@ -51,25 +44,38 @@
         android:prompt="@string/multimedia_prompt" />/>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
 
 
         <Button
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="שמור"
             android:id="@+id/dialog_save"
-            android:layout_weight="1" />
+            android:textAlignment="center"
+            android:background="#4c035438"
+            android:textStyle="bold"
+            android:textColor="#035438"
+            android:textSize="17dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right" />
 
         <Button
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="בטל"
             android:id="@+id/dialog_cancel"
-            android:layout_weight="1" />
+            android:textAlignment="center"
+            android:background="#4c035438"
+            android:textStyle="bold"
+            android:textColor="#035438"
+            android:textSize="17dp"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="left" />
+
     </LinearLayout>
 
 </LinearLayout>

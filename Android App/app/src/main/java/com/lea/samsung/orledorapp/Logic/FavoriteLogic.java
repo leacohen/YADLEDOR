@@ -4,6 +4,7 @@ import com.lea.samsung.orledorapp.Common.UserContext;
 import com.lea.samsung.orledorapp.DAL.MultimediaDal;
 import com.lea.samsung.orledorapp.DAL.UserDal;
 import com.lea.samsung.orledorapp.Inerfaces.IMultimediaAction;
+import com.lea.samsung.orledorapp.Inerfaces.IRecommended;
 import com.lea.samsung.orledorapp.Inerfaces.IRecommendedActivity;
 import com.lea.samsung.orledorapp.Models.BaseMultimedia;
 import com.lea.samsung.orledorapp.Models.Multimedia;
@@ -34,10 +35,12 @@ public class FavoriteLogic implements IMultimediaAction {
 
     @Override
     public void onMultimediaLoaded(List<Multimedia> multimedias, MultimediaType type) {
-        LinkedList<Multimedia> newMedias = new LinkedList<>();
+        LinkedList<IRecommended> newMedias = new LinkedList<>();
 
-        HashMap userLikes = UserContext.getLoggedUser().getLikes();
+        User loggedUser = UserContext.getLoggedUser();
+        HashMap userLikes = loggedUser.getLikes();
 
+        newMedias.addAll(loggedUser.get_userMultimedia());
         for (Multimedia media : multimedias) {
             if (userLikes.containsKey(media.get_name())&&
                     userLikes.get(media.get_name()) == 1) {

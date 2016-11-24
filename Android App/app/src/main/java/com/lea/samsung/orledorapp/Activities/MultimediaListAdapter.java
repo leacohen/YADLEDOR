@@ -68,6 +68,8 @@ public class MultimediaListAdapter extends BaseAdapter {
         TextView lblLanguages = (TextView)convertView.findViewById(R.id.multimedia_language);
         TextView lblDate = (TextView)convertView.findViewById(R.id.multimedia_date);
         ImageView ivSign = (ImageView)convertView.findViewById(R.id.lvSign);
+        ImageView ivLike = (ImageView) convertView.findViewById(R.id.lvLike);
+        ImageView ivDislike = (ImageView) convertView.findViewById(R.id.lvDislike);
 
         // getting movie data for the row
         final IRecommended m = multimedias.get(position);
@@ -75,11 +77,19 @@ public class MultimediaListAdapter extends BaseAdapter {
         // title
         title.setText(m.get_name());
 
+        ivSign.setColorFilter(signColors.get(position % signColors.size()));
+        if(m.get_type() == MultimediaType.Song) {
+            ivSign.setImageResource(R.drawable.music_sign);
+        }
+        else if(m.get_type() == MultimediaType.Movie) {
+            ivSign.setImageResource(R.drawable.movie_sign);
+        }
+        else {
+            ivSign.setImageResource(R.drawable.other_sign);
+        }
+
         if(m instanceof  Multimedia) {
             Multimedia multimedia = (Multimedia) m;
-
-            ImageView ivLike = (ImageView) convertView.findViewById(R.id.lvLike);
-            ImageView ivDislike = (ImageView) convertView.findViewById(R.id.lvDislike);
 
             setLikeClicks(
                     ivLike,
@@ -91,18 +101,6 @@ public class MultimediaListAdapter extends BaseAdapter {
                     ivDislike,
                     multimedia.get_name());
 
-            if(multimedia.get_type() == MultimediaType.Song) {
-                ivSign.setImageResource(R.drawable.music_sign);
-            }
-            else if(multimedia.get_type() == MultimediaType.Movie) {
-                ivSign.setImageResource(R.drawable.movie_sign);
-            }
-            else {
-                ivSign.setImageResource(R.drawable.other_sign);
-            }
-
-            ivSign.setColorFilter(signColors.get(position % signColors.size()));
-
             lblLanguages.setVisibility(View.VISIBLE);
             lblLanguages.setText(activity.getString(R.string.lvLanguage) + ": " + multimedia.get_language());
 
@@ -112,6 +110,13 @@ public class MultimediaListAdapter extends BaseAdapter {
                         android.text.format.DateFormat.format("yyyy/MM/dd", multimedia.get_publishDate()));
             }
         }
+        else {
+            ivLike.setVisibility(View.INVISIBLE);
+            ivDislike.setVisibility(View.INVISIBLE);
+            lblDate.setVisibility(View.INVISIBLE);
+            lblLanguages.setVisibility(View.INVISIBLE);
+        }
+
 
         return convertView;
     }
