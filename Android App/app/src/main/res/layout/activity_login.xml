@@ -39,7 +39,6 @@
         android:layout_marginRight="50dp"
         android:hint="@string/txtLoginPassword"
         android:password="true"
-        android:textAlignment="textEnd"
         android:textColorHint="#4c035438" />
 
     <Button
