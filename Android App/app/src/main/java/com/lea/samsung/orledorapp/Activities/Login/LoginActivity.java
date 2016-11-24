@@ -31,7 +31,6 @@ import android.widget.TextView;
 
 import com.lea.samsung.orledorapp.Activities.MainFavoriteActivity;
 import com.lea.samsung.orledorapp.Logic.LoginLogic;
-import com.lea.samsung.orledorapp.Activities.MainMenuActivity;
 import com.lea.samsung.orledorapp.R;
 
 import java.util.ArrayList;

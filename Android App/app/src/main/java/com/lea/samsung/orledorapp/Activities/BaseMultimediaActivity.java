@@ -28,7 +28,7 @@ public class BaseMultimediaActivity extends AppCompatActivity implements IRecomm
     }
 
     @Override
-    public void RecommencedListLoaded(List<IRecommended> list) {
+    public void RecommencedListLoaded(List<? extends IRecommended> list) {
         final ListView mLinksList = (ListView) findViewById(R.id.listView);
 
         MultimediaListAdapter adapter = new MultimediaListAdapter(this, list);

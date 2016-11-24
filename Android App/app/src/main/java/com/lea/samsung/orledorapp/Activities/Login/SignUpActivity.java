@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.lea.samsung.orledorapp.Activities.MainFavoriteActivity;
 import com.lea.samsung.orledorapp.Activities.MultiSpinner;
 import com.lea.samsung.orledorapp.Logic.SignupLogic;
-import com.lea.samsung.orledorapp.Activities.MainMenuActivity;
 import com.lea.samsung.orledorapp.R;
 
 import java.util.ArrayList;

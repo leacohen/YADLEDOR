@@ -8,5 +8,5 @@ import java.util.List;
 public interface IRecommendedActivity {
     void NothingToShow();
 
-    void RecommencedListLoaded(List<IRecommended> list);
+    void RecommencedListLoaded(List<? extends IRecommended> list);
 }

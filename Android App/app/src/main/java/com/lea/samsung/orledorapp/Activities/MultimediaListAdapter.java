@@ -33,9 +33,9 @@ public class MultimediaListAdapter extends BaseAdapter {
     }};
     private Activity activity;
     private LayoutInflater inflater;
-    private List<IRecommended> multimedias;
+    private List<? extends IRecommended> multimedias;
 
-    public MultimediaListAdapter(Activity activity, List<IRecommended> multimedias) {
+    public MultimediaListAdapter(Activity activity, List<? extends IRecommended> multimedias) {
         this.activity = activity;
         this.multimedias = multimedias;
     }

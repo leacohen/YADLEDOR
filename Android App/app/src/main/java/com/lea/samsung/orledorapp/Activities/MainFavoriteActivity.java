@@ -49,11 +49,15 @@ public class MainFavoriteActivity extends AppCompatActivity {
                 getApplicationContext().startActivity(intent);
             }
         });
-    }
 
-    private void OpenActivity(Class classType)
-    {
-
+        findViewById(R.id.btnfavoritpage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FavoriteActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getApplicationContext().startActivity(intent);
+            }
+        });
     }
 
     private void SetHeader() {
