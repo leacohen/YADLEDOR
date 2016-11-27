@@ -28,8 +28,8 @@
         <item>אחר</item>
     </string-array>
     <string name="title_activity_welcome">WelcomeActivity</string>
-    <string name="WelcomeHeader">ברוכים הבאים לאור לדור</string>
-    <string name="lblWelcomeDescription">אנו מזמינים אתכם דיירים יקרים לעולם של תכנים מותאמים אישית, בו תוכלו ליצור מרחב אינדוודואלי עם ההעדפות הפרטיות שלכם!
+    <string name="WelcomeHeader">ברוכים הבאים ליד לדור</string>
+     <string name="lblWelcomeDescription">אנו מזמינים אתכם בני הדור השלישי לעולם של תכנים מותאמים אישית, בו תוכלו ליצור מרחב אינדוודואלי עם ההעדפות הפרטיות שלכם!
 מאחלים לכם הנאה מרובה.</string>
     <string name="btnWelcomeRegister">אם ברצונך להצטרף אלינו, לחצ/י כאן</string>
     <string name="btnWelcomeLogin">אם כבר נרשמת אצלינו, לחצ/י כאן</string>
