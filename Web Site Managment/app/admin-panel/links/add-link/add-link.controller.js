@@ -47,8 +47,7 @@ angular.module('orledor').controller('addLinkController', function($scope, $mdDi
 	}	
 
 	$scope.getSubcategories = function (type) {
-		var category = _.find($scope.subcategories, { 'name': type });
-		return category ? category.subcategories : [];
+		return _.find($scope.subcategories, { 'name': type }).subcategories;
 	}
 
 	function loadCategories() {
