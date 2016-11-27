@@ -36,8 +36,7 @@
         android:id="@+id/sign_up_password"
         android:layout_gravity="center_horizontal"
         android:hint="@string/txtPassword"
-        android:textColorHint="#4c035438"
-        android:textAlignment="textEnd" />
+        android:textColorHint="#4c035438" />
 
     <EditText
         android:layout_width="match_parent"
@@ -47,8 +46,7 @@
         android:id="@+id/sign_up_re_password"
         android:layout_gravity="center_horizontal"
         android:hint="@string/txtRepassword"
-        android:textColorHint="#4c035438"
-        android:textAlignment="textEnd" />
+        android:textColorHint="#4c035438" />
 
     <EditText
         android:layout_width="match_parent"
