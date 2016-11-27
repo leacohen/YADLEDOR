@@ -12,6 +12,13 @@
     tools:context=".com.lea.samsung.orledorapp.Activities.WelcomeActivity"
     android:weightSum="1">
 
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:id="@+id/logo"
+        android:src="@mipmap/ic_logo"
+        android:layout_gravity="center_horizontal" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,13 +40,6 @@
         android:layout_margin="20dp"
         android:textColor="#035438"
         android:textSize="25dp" />
-
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/logo"
-        android:src="@mipmap/ic_logo"
-        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="fill_parent"
