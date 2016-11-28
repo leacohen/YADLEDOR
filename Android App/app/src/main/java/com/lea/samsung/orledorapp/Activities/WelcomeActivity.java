@@ -11,6 +11,7 @@ import android.view.View;
 import com.firebase.client.Firebase;
 import com.lea.samsung.orledorapp.Activities.Login.LoginActivity;
 import com.lea.samsung.orledorapp.Activities.Login.SignUpActivity;
+import com.lea.samsung.orledorapp.Common.UserContext;
 import com.lea.samsung.orledorapp.R;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -21,6 +22,13 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
         Firebase.setAndroidContext(this);
+
+        if(UserContext.getLoggedUser() != null) {
+            Intent intent = new Intent(getApplicationContext(), MainFavoriteActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            getApplicationContext().startActivity(intent);
+            finish();
+        }
 
         SetLoginOnClickAction();
         SetSignupOnClickAction();

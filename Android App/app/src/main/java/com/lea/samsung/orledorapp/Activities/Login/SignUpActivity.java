@@ -89,8 +89,9 @@ public class SignUpActivity extends AppCompatActivity implements MultiSpinner.Mu
 
                 if (isSignUpSucceed) {
                     Intent intent = new Intent(getApplicationContext(), MainFavoriteActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     getApplicationContext().startActivity(intent);
+                    finish();
                 } else {
                     // TODO: change the message
                     Toast.makeText(getApplicationContext(), "Register failed, try again", Toast.LENGTH_LONG);

@@ -137,8 +137,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccsed() {
         Intent intent = new Intent(getApplicationContext(), MainFavoriteActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         getApplicationContext().startActivity(intent);
+        finish();
     }
 
     public void onLoginFailed() {
