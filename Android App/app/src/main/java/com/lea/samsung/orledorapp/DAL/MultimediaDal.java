@@ -57,15 +57,4 @@ public class MultimediaDal extends BaseDal {
             return false;
         }
     }
-
-    public Boolean AddMultimedia(Multimedia s) {
-        try {
-            _multimediaCollection.child(s.get_name()).setValue(s);
-            return true;
-        }
-        catch (Exception ex) {
-            Logger.LogErrorWithException("Failed to save multimedia", ex);
-            return false;
-        }
-    }
 }
