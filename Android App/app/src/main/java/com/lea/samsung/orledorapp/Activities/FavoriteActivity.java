@@ -49,7 +49,17 @@ public class FavoriteActivity extends BaseMultimediaActivity {
             @Override
             public void onClick(View v) {
                 String m_TextName = inputName.getText().toString();
+                if(m_TextName.isEmpty()) {
+                    inputName.setError("שדה זה הוא שדה חובה");
+                    return;
+                }
+
                 String m_TextURL = inputURL.getText().toString();
+                if(m_TextURL.isEmpty()) {
+                    inputURL.setError("שדה זה הוא שדה חובה");
+                    return;
+                }
+
                 MultimediaType type = MultimediaType.values()[inputType.getSelectedItemPosition()];
 
                 BaseMultimedia b = new BaseMultimedia();
@@ -59,8 +69,7 @@ public class FavoriteActivity extends BaseMultimediaActivity {
 
                 new FavoriteLogic().AddLink(b);
                 dialog.cancel();
-                // TODO: think about that..
-                //RefreshMultimediaList();
+                RefreshMultimediaList();
             }
         });
         Button cancelBtn = (Button)dialog.findViewById(R.id.dialog_cancel);
@@ -72,5 +81,9 @@ public class FavoriteActivity extends BaseMultimediaActivity {
         });
 
         dialog.show();
+    }
+
+    private void RefreshMultimediaList() {
+        new FavoriteLogic().LoadFavoriteMedia(this);
     }
 }
