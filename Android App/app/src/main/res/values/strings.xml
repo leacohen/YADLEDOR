@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">אור לדור</string>
+    <string name="app_name">יד לדור</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
