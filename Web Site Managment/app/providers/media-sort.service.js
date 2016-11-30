@@ -1,7 +1,7 @@
 angular.module('orledor').service('mediaSort', function($rootScope, loggedUser) {
 
     var baseAge = new Date(loggedUser.getUser()._birthDate).getFullYear() + 18; // The base age is 18..
-    var userLikes = loggedUser.getUser().likes;
+    var userLikes = loggedUser.getUser().likes || {};
 
     function sortSystemSuggest(medias) {
         var sortedMedia = [];
