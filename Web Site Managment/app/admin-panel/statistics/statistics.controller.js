@@ -69,9 +69,9 @@ angular.module('orledor').controller('statisticsController', function ($scope, $
     }
 
     function loadTop10Medias() {
-        var topMedias = _.slice(_.sortBy(medias, function (media) {
+        var topMedias = _.slice(_.reverse(_.sortBy(medias, function (media) {
             return media.likes;
-        }), 0, 10);
+        })), 0, 10);
 
         $scope.top10medias_labels = _.map(topMedias, '_name');
         $scope.top10medias_data = _.map(topMedias, 'likes');
