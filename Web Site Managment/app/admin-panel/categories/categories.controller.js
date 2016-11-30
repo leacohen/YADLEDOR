@@ -24,6 +24,9 @@ angular.module('orledor').controller('categoriesController', function($scope, $m
                 }
             })
             .then(function(newSubcategoryName) {
+                if(!category.subcategories) {
+                    category.subcategories = [];
+                }
                 category.subcategories.push(newSubcategoryName);                
                 return firebase.child('categories').child(category.name).set(angular.copy(category));
             });
