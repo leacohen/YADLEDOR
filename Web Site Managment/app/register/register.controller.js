@@ -27,9 +27,10 @@ angular.module('orledor')
 				.then(function () {
 					$scope.user._birthDate = $scope.selectedBirthDate.toISOString();
 
-					return firebase.child('users').child($scope.user._userName).set($scope.user);					
+					return firebase.child('users').child($scope.user._userName).set($scope.user);										
 				})
 				.then(function () {
+					loggedUser.setUser($scope.user);
 					$state.go('home');
 				})
 				.catch(function (err) {
