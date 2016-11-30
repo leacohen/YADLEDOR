@@ -11,10 +11,10 @@
 	  	</md-option>
 	</md-select>
 </md-card>
-<md-list class="media-suggestion">
-	<md-list-item class="md-3-line" ng-repeat="media in medias | filter: filterType">
-	  <div class="md-list-item-text" layout="row">
-	  	<div class="media-info" layout="row" ng-click="openLink(media._link)" flex>
+<md-list class="media-suggestion" flex>
+	<md-list-item dir ="rtl" flex class="md-3-line" ng-repeat="media in medias | filter: filterType">
+	  <div  class="md-list-item-text" layout="row">
+	  	<div class="media-info" layout="row" ng-click="openLink(media._link)">
 		  	<i class="mdi {{ mediaTypeToMdi(media._type) }} mdi-36px md-avatar"></i>
 		  	<div layout="column">	  	
 		  		<h3>{{ media._name }}</h3>
@@ -22,6 +22,7 @@
 		    	<p>{{ media._publishDate | date }}</p>
 		  	</div>
 		</div>
+		<div flex></div>
 	  	<div class="vote">
 	  		<i class="mdi mdi-thumb-down-outline mdi-36px" 
 	  		   ng-class="{'selected': user.likes[media._name] === -1}" 
