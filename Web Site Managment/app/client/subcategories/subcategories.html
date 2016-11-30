@@ -8,14 +8,14 @@
 <md-list class="media-suggestion">
 	<md-list-item class="md-3-line" ng-repeat="media in medias">
 	  <div class="md-list-item-text" layout="row">
-	  	<div class="media-info" layout="row" ng-click="openLink(media._link)" flex>
+	  	<div class="media-info" layout="row" ng-click="openLink(media._link)">
 		  	<i class="mdi {{ mediaTypeToMdi(media._type) }} mdi-36px md-avatar"></i>
 		  	<div layout="column">	  	
 		  		<h3>{{ media._name }}</h3>
 		    	<h4>{{ media._language }}</h4>
 		    	<p>{{ media._publishDate | date }}</p>
 		  	</div>
-		</div>	    
+		</div>
 	  </div>
 	  <md-divider ></md-divider>
 	</md-list-item>	
