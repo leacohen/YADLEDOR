@@ -144,47 +144,25 @@ function getReleaseByDay(dayDate){ 		// if person is 0 search for person else gr
 
     });
 
-};
+}
 
 
-/*
-function getReleaseByDay(dayDate){ 		// if person is 0 search for person else group
-                                          //let person = person;
-    console.log(dayDate)
-    var str ='http://musicbrainz.org/ws/2/release/?query=date:';
+
+//date:1999 and country:de and rock
+function tyct(date,country,tag){ 		//songsinyearandcountryandtag
+    console.log("date");
+    var str ='http://musicbrainz.org/ws/2/recording/?query=date:';
     //console.log(str);
-    str+= String(dayDate);
+    str+= String(date);
+    str+= ' AND country:';
+    str+= String(country);
+    str+= ' AND ';
+    str+= String(tag);
     str+= '&fmt=json';
     console.log(str);
     var item =httpGetAsync(String(str),function(data){
-        console.log("data: ", data)
-        let jas = JSON.parse(data);
-        console.log("jas: ", jas)
-
-                let i = 0 ;
-                let size = jas.artists.length
-                console.log("size: ", size)
-
-                for (i = 0 ; i < size ; i++) {
-                    //console.log("i: ", i)
-                    console.log("type: ", String(jas.artists[i].type))
-                    if ((person == 0) && (String(jas.artists[i].type) === "Person"))
-                    {
-                        console.log("try ")
-                        let stat=jas.artists[i].country;			//country
-                        console.log("stat: ", stat)
-                        return
-                    }
-                    else if (person == 1 && jas.artists[i].type == 'Group')
-                        {
-                        let stat=jas.artists[i].country;			//country
-                        console.log("stat: ", stat)
-                        return
-                        }
-                    }
-                //}
-
-
+       console.log("data: ", data);
+       let jas = JSON.parse(data);
+       console.log("jas: ", jas);
     });
-
-};*/
+};

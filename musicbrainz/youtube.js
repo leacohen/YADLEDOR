@@ -1,5 +1,4 @@
-
-function getData(){
+function youtube(){
 
 };
 function httpGetAsync(theUrl, callback) {
@@ -82,4 +81,40 @@ function getTags(videoId){
     });
 
 };
+
+function search(search) {
+    var str ='https://www.googleapis.com/youtube/v3/search?part=snippet&q=';
+    //console.log(str);
+    str+= String(search);
+    str+='&key=AIzaSyDXKEiZzKTDzYIaRUG63nK7dO-h5Yykfyk';
+    //console.log(str);
+
+    var item =httpGetAsync(String(str),function(data){
+        let j = JSON.parse(data);
+        /*	console.log("***** data obj: "+data);
+            console.log("-----------------------------------------------------------------");
+            console.log("***** j obj: "+j);
+            console.log("-----------------------------------------------------------------");
+        */
+        let stat=j.items[0].id;         //
+        console.log("----- stat obj:    "+ stat);
+        let videoId=stat.videoId;
+//	console.log("-----------------------------------------------------------------");
+
+        console.log("videoId: "+videoId);
+        var link = '<iframe width="420" height="345" src="http://www.youtube.com/embed/';
+        link+=videoId.toString();
+        link+='">';
+        var $frame = $(link);
+        $('body').html( $frame );
+        setTimeout( function() {
+            var doc = $frame[0].contentWindow.document;
+            var $body = $('body',doc);
+            $body.html('<h1>Test</h1>');
+        }, 1 );
+
+    });
+
+};
+    
 
