@@ -1,148 +1,58 @@
 
+
+};
+
+
 function getData(){
-
-};
-
-function httpGetAsync(theUrl, callback) { 
-	var xmlHttp = new XMLHttpRequest(); 
-	xmlHttp.onreadystatechange = function() { 
-		if (xmlHttp.readyState == 4 && xmlHttp.status == 200) 
-		callback(xmlHttp.responseText);
-		} 
-	xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-	xmlHttp.send(null); 
+    document.getElementById("send").addEventListener("click", setData);
+    var country_arr = {"Afghanistan":{}, "Albania":{}, "Algeria":{}, "American Samoa":{}, "Angola":{}, "Anguilla":{}, "Antartica":{}, "Antigua and Barbuda":{}, "Argentina":{}, "Armenia":{}, "Aruba":{}, "Ashmore and Cartier Island":{}, "Australia":{}, "Austria":{}, "Azerbaijan":{}, "Bahamas":{}, "Bahrain":{}, "Bangladesh":{}, "Barbados":{}, "Belarus":{}, "Belgium":{}, "Belize":{}, "Benin":{}, "Bermuda":{}, "Bhutan":{}, "Bolivia":{}, "Bosnia and Herzegovina":{}, "Botswana":{}, "Brazil":{}, "British Virgin Islands":{}, "Brunei":{}, "Bulgaria":{}, "Burkina Faso":{}, "Burma":{}, "Burundi":{}, "Cambodia":{}, "Cameroon":{}, "Canada":{}, "Cape Verde":{}, "Cayman Islands":{}, "Central African Republic":{}, "Chad":{}, "Chile":{}, "China":{}, "Christmas Island":{}, "Clipperton Island":{}, "Cocos (Keeling) Islands":{}, "Colombia":{}, "Comoros":{}, "Congo, Democratic Republic of the":{}, "Congo, Republic of the":{}, "Cook Islands":{}, "Costa Rica":{}, "Cote d'Ivoire":{}, "Croatia":{}, "Cuba":{}, "Cyprus":{}, "Czeck Republic":{}, "Denmark":{}, "Djibouti":{}, "Dominica":{}, "Dominican Republic":{}, "Ecuador":{}, "Egypt":{}, "El Salvador":{}, "Equatorial Guinea":{}, "Eritrea":{}, "Estonia":{}, "Ethiopia":{}, "Europa Island":{}, "Falkland Islands (Islas Malvinas)":{}, "Faroe Islands":{}, "Fiji":{}, "Finland":{}, "France":{}, "French Guiana":{}, "French Polynesia":{}, "French Southern and Antarctic Lands":{}, "Gabon":{}, "Gambia, The":{}, "Gaza Strip":{}, "Georgia":{}, "Germany":{}, "Ghana":{}, "Gibraltar":{}, "Glorioso Islands":{}, "Greece":{}, "Greenland":{}, "Grenada":{}, "Guadeloupe":{}, "Guam":{}, "Guatemala":{}, "Guernsey":{}, "Guinea":{}, "Guinea-Bissau":{}, "Guyana":{}, "Haiti":{}, "Heard Island and McDonald Islands":{}, "Holy See (Vatican City)":{}, "Honduras":{}, "Hong Kong":{}, "Howland Island":{}, "Hungary":{}, "Iceland":{}, "India":{}, "Indonesia":{}, "Iran":{}, "Iraq":{}, "Ireland":{}, "Ireland, Northern":{}, "Israel":{}, "Italy":{}, "Jamaica":{}, "Jan Mayen":{}, "Japan":{}, "Jarvis Island":{}, "Jersey":{}, "Johnston Atoll":{}, "Jordan":{}, "Juan de Nova Island":{}, "Kazakhstan":{}, "Kenya":{}, "Kiribati":{}, "Korea, North":{}, "Korea, South":{}, "Kuwait":{}, "Kyrgyzstan":{}, "Laos":{}, "Latvia":{}, "Lebanon":{}, "Lesotho":{}, "Liberia":{}, "Libya":{}, "Liechtenstein":{}, "Lithuania":{}, "Luxembourg":{}, "Macau":{}, "Macedonia, Former Yugoslav Republic of":{}, "Madagascar":{}, "Malawi":{}, "Malaysia":{}, "Maldives":{}, "Mali":{}, "Malta":{}, "Man, Isle of":{}, "Marshall Islands":{}, "Martinique":{}, "Mauritania":{}, "Mauritius":{}, "Mayotte":{}, "Mexico":{}, "Micronesia, Federated States of":{}, "Midway Islands":{}, "Moldova":{}, "Monaco":{}, "Mongolia":{}, "Montserrat":{}, "Morocco":{}, "Mozambique":{}, "Namibia":{}, "Nauru":{}, "Nepal":{}, "Netherlands":{}, "Netherlands Antilles":{}, "New Caledonia":{}, "New Zealand":{}, "Nicaragua":{}, "Niger":{}, "Nigeria":{}, "Niue":{}, "Norfolk Island":{}, "Northern Mariana Islands":{}, "Norway":{}, "Oman":{}, "Pakistan":{}, "Palau":{}, "Panama":{}, "Papua New Guinea":{}, "Paraguay":{}, "Peru":{}, "Philippines":{}, "Pitcaim Islands":{}, "Poland":{}, "Portugal":{}, "Puerto Rico":{}, "Qatar":{}, "Reunion":{}, "Romainia":{}, "Russia":{}, "Rwanda":{}, "Saint Helena":{}, "Saint Kitts and Nevis":{}, "Saint Lucia":{}, "Saint Pierre and Miquelon":{}, "Saint Vincent and the Grenadines":{}, "Samoa":{}, "San Marino":{}, "Sao Tome and Principe":{}, "Saudi Arabia":{}, "Scotland":{}, "Senegal":{}, "Seychelles":{}, "Sierra Leone":{}, "Singapore":{}, "Slovakia":{}, "Slovenia":{}, "Solomon Islands":{}, "Somalia":{}, "South Africa":{}, "South Georgia and South Sandwich Islands":{}, "Spain":{}, "Spratly Islands":{}, "Sri Lanka":{}, "Sudan":{}, "Suriname":{}, "Svalbard":{}, "Swaziland":{}, "Sweden":{}, "Switzerland":{}, "Syria":{}, "Taiwan":{}, "Tajikistan":{}, "Tanzania":{}, "Thailand":{}, "Tobago":{}, "Toga":{}, "Tokelau":{}, "Tonga":{}, "Trinidad":{}, "Tunisia":{}, "Turkey":{}, "Turkmenistan":{}, "Tuvalu":{}, "Uganda":{}, "Ukraine":{}, "United Arab Emirates":{}, "United Kingdom":{}, "Uruguay":{}, "USA":{}, "Uzbekistan":{}, "Vanuatu":{}, "Venezuela":{}, "Vietnam":{}, "Virgin Islands":{}, "Wales":{}, "Wallis and Futuna":{}, "West Bank":{}, "Western Sahara":{}, "Yemen":{}, "Yugoslavia":{}, "Zambia":{}, "Zimbabwe":{}};
+    var countySel = document.getElementById("countySel");
+    for (var country in country_arr) {
+        countySel.options[countySel.options.length] = new Option(country, country);
+    }
 };
 
 
-function getArtisCountry(artistName,person){ 		// if person is 0 search for person else group
-	//let person = person;
-	console.log(artistName)
-	var str ='https://musicbrainz.org/ws/2/artist?query=';
-	//console.log(str);  
-	str+= String(artistName);
-	str+= '&fmt=json';
-	console.log(str);
-	var item =httpGetAsync(String(str),function(data){
-		console.log("data: ", data)
-	let jas = JSON.parse(data);
-		console.log("jas: ", jas)
-	let i = 0 ;
-	let size = jas.artists.length
-	for (i = 0 ; i < size ; i++) {
-		//console.log("i: ", i)
-		console.log("type: ", String(jas.artists[i].type))
-		if ((person == 0) && (String(jas.artists[i].type) === "Person"))
-		{	
-			console.log("try ")
-			let stat=jas.artists[i].country;			//country
-			console.log("stat: ", stat)
-			return
-		}	
-		else if (person == 1 && jas.artists[i].type == 'Group')
-			{
-			let stat=jas.artists[i].country;			//country
-			console.log("stat: ", stat)
-			return
-			}
-		}
-	//}
-		
-	
-	});
+function setData() {
 
-};
+   // countryElementId
 
-function getArtisByTime(start,end,person){ 		// if person is 0 search for person else group
-	//let person = person;
-	//console.log(artistName)
-	//http://musicbrainz.org/ws/2/artist/?query=begin:[1720 TO 1900] AND end:[1720 TO 1900] AND type:"person"&fmt=json
-	var str ='https://musicbrainz.org/ws/2/artist?query=begin[';
-	//console.log(str);  
-	str+= String(start);
-	str+= ' TO ';
-	str+= String(end);
-	str+= '] AND end:['
-	str+= String(start);
-	str+= ' TO ';
-	str+= String(end);
-	str+= '] AND type:"';
-	if (person == 1)
-		str+= 'group"';
-	else
-		str+= 'person"';
-	str+= '&fmt=json';
-	console.log(str);
-	
-	var item =httpGetAsync(String(str),function(data){
-		console.log("data: ", data)
-	
-	let jas = JSON.parse(data);
-		console.log("jas: ", jas)
-	/*
-	let i = 0 ;
-	let size = jas.artists.length
-	for (i = 0 ; i < size ; i++) {
-		//console.log("i: ", i)
-		console.log("type: ", String(jas.artists[i].type))
-		if ((person == 0) && (String(jas.artists[i].type) === "Person"))
-		{	
-			console.log("try ")
-			let stat=jas.artists[i].country;			//country
-			console.log("stat: ", stat)
-			return
-		}	
-		else if (person == 1 && jas.artists[i].type == 'Group')
-			{
-			let stat=jas.artists[i].country;			//country
-			console.log("stat: ", stat)
-			return
-			}
-		}
-	//}
-		
-	*/
-	});
+    this.lang = document.getElementById("lang").value;
+    if (this.lang == null || this.lang == 0)
+    {
+        document.getElementById("demo").innerHTML = "error in languge"
+        return;
+    }
+    this.age  = document.getElementById("age").value;
+    if (this.age <= 20)
+    {
+        document.getElementById("demo").innerHTML = "error in age"
+        return;
+    }
+    this.country =document.getElementById("countySel").value;
+    if (this.country == 0)
+    {
+        document.getElementById("demo").innerHTML = "error in country"
+        return;
+    }
+    document.getElementById("demo").innerHTML = "age:" + this.age + " , lang : "+this.lang +", country:"+this.country;
+    //alert("age:" + age.toString() + ", lang : "+lang.toString() +", country:"+country.toString())
+
+    calculator(this.age);
+
 
 };
 
 
-function getReleaseByDay(dayDate){ 		// if person is 0 search for person else group
-	//let person = person;
-	console.log(dayDate)
-	var str ='http://musicbrainz.org/ws/2/release/?query=date:';
-	//console.log(str);  
-	str+= String(dayDate);
-	str+= '&fmt=json';
-	console.log(str);
-	var item =httpGetAsync(String(str),function(data){
-		console.log("data: ", data)
-	let jas = JSON.parse(data);
-		console.log("jas: ", jas)
-	/*
-    let i = 0 ;
-	let size = jas.artists.length
-    console.log("size: ", size)
-	
-    for (i = 0 ; i < size ; i++) {
-		//console.log("i: ", i)
-		console.log("type: ", String(jas.artists[i].type))
-		if ((person == 0) && (String(jas.artists[i].type) === "Person"))
-		{	
-			console.log("try ")
-			let stat=jas.artists[i].country;			//country
-			console.log("stat: ", stat)
-			return
-		}	
-		else if (person == 1 && jas.artists[i].type == 'Group')
-			{
-			let stat=jas.artists[i].country;			//country
-			console.log("stat: ", stat)
-			return
-			}
-		}
-	//}
-		*/
-	
-	});
+function calculator(age) {
+    var years = 20 ;
+    let year = parseInt(age - years) ;
+    var d = new Date();
+    var todayYear = d.getFullYear();
+    let serYear =todayYear - year ;
+    document.getElementById("search").innerHTML = "Search in Year : "+serYear;
 
-};
+    
+}
+
+
